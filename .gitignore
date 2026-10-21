@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+.env
+murph.zip
+BUILD
+*.metadata.json
+hackathon_prototype_build_*/

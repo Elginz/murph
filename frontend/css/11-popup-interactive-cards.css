@@ -1,0 +1,604 @@
+/* ============================================================================
+ * 11-popup-interactive-cards.css
+ * Category-Coded Signature Palettes (Blue Files, Yellow Workflows, 5 Dock Apps)
+ * & Tactile Interactive Card States in both Light Mode & Dark Mode.
+ * ============================================================================ */
+
+/* 1. Category Signature Variables per Popup Family */
+:is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122) {
+  --pop-accent: #0284C7;
+  --pop-accent-strong: #0369A1;
+  --pop-accent-soft-light: #E0F2FE;
+  --pop-accent-tint-light: #F0F9FF;
+  --pop-accent-border-light: #7DD3FC;
+  --pop-accent-dark: #38BDF8;
+  --pop-accent-soft-dark: #0C2D48;
+  --pop-accent-tint-dark: #0A1D30;
+  --pop-accent-border-dark: #0284C7;
+  --pop-cta-grad: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
+}
+
+:is(
+  #popup-136-468, .os-floating-window[data-popup-base-id="136:468"],
+  #popup-136-417, .os-floating-window[data-popup-base-id="136:417"],
+  #popup-136-521, .os-floating-window[data-popup-base-id="136:521"],
+  #popup-136-579, .os-floating-window[data-popup-base-id="136:579"],
+  #popup-145-1045, #popup-155-1214
+) {
+  --pop-accent: #D97706;
+  --pop-accent-strong: #B45309;
+  --pop-accent-soft-light: #FEF3C7;
+  --pop-accent-tint-light: #FFFBEB;
+  --pop-accent-border-light: #FCD34D;
+  --pop-accent-dark: #FBBF24;
+  --pop-accent-soft-dark: #332007;
+  --pop-accent-tint-dark: #1E1508;
+  --pop-accent-border-dark: #D97706;
+  --pop-cta-grad: linear-gradient(135deg, #D97706 0%, #EA580C 100%);
+}
+
+#popup-136-730 {
+  --pop-accent: #0D9488;
+  --pop-accent-strong: #0F766E;
+  --pop-accent-soft-light: #CCFBF1;
+  --pop-accent-tint-light: #F0FDFA;
+  --pop-accent-border-light: #5EEAD4;
+  --pop-accent-dark: #2DD4BF;
+  --pop-accent-soft-dark: #082F2C;
+  --pop-accent-tint-dark: #072222;
+  --pop-accent-border-dark: #0D9488;
+  --pop-cta-grad: linear-gradient(135deg, #0D9488 0%, #0284C7 100%);
+}
+
+#popup-136-836 {
+  --pop-accent: #E11D48;
+  --pop-accent-strong: #BE123C;
+  --pop-accent-soft-light: #FFE4E6;
+  --pop-accent-tint-light: #FFF1F2;
+  --pop-accent-border-light: #FDA4AF;
+  --pop-accent-dark: #FB7185;
+  --pop-accent-soft-dark: #38101C;
+  --pop-accent-tint-dark: #240B13;
+  --pop-accent-border-dark: #E11D48;
+  --pop-cta-grad: linear-gradient(135deg, #E11D48 0%, #DC2626 100%);
+}
+
+#popup-136-890 {
+  --pop-accent: #4F46E5;
+  --pop-accent-strong: #4338CA;
+  --pop-accent-soft-light: #E0E7FF;
+  --pop-accent-tint-light: #EEF2FF;
+  --pop-accent-border-light: #A5B4FC;
+  --pop-accent-dark: #818CF8;
+  --pop-accent-soft-dark: #1E1B4B;
+  --pop-accent-tint-dark: #131336;
+  --pop-accent-border-dark: #4F46E5;
+  --pop-cta-grad: linear-gradient(135deg, #4F46E5 0%, #2563EB 100%);
+}
+
+#popup-136-942 {
+  --pop-accent: #059669;
+  --pop-accent-strong: #047857;
+  --pop-accent-soft-light: #D1FAE5;
+  --pop-accent-tint-light: #ECFDF5;
+  --pop-accent-border-light: #6EE7B7;
+  --pop-accent-dark: #34D399;
+  --pop-accent-soft-dark: #062E22;
+  --pop-accent-tint-dark: #051F18;
+  --pop-accent-border-dark: #059669;
+  --pop-cta-grad: linear-gradient(135deg, #059669 0%, #0D9488 100%);
+}
+
+/* 2. Signature Titlebar & Workspace Badge Accents — Light & Dark Modes */
+body:not(.dock-theme-dark) :is(.os-floating-window, .os-popup-wrapper)[style*="--pop-accent"],
+body:not(.dock-theme-dark) :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Window titlebar"], [data-node-name="macOS dark titlebar"]) {
+  background: linear-gradient(90deg, var(--pop-accent-tint-light) 0%, #F8FAFC 62%) !important;
+  border-top: 3px solid var(--pop-accent) !important;
+  border-bottom: 1px solid var(--pop-accent-border-light) !important;
+}
+
+body.dock-theme-dark :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Window titlebar"], [data-node-name="macOS dark titlebar"]) {
+  background: linear-gradient(90deg, var(--pop-accent-soft-dark) 0%, #0F172A 65%) !important;
+  border-top: 3px solid var(--pop-accent-dark) !important;
+  border-bottom: 1px solid var(--pop-accent-border-dark) !important;
+}
+
+body:not(.dock-theme-dark) :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Workspace badge"], [data-node-name="Single workflow badge"]) {
+  background: var(--pop-accent-soft-light) !important;
+  border: 1px solid var(--pop-accent-border-light) !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Workspace badge"], [data-node-name="Single workflow badge"]) * {
+  color: var(--pop-accent-strong) !important;
+}
+
+body.dock-theme-dark :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Workspace badge"], [data-node-name="Single workflow badge"]) {
+  background: var(--pop-accent-soft-dark) !important;
+  border: 1px solid var(--pop-accent-border-dark) !important;
+}
+body.dock-theme-dark :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122, #popup-136-468, .os-floating-window[data-popup-base-id="136:468"], #popup-136-417, .os-floating-window[data-popup-base-id="136:417"], #popup-136-521, .os-floating-window[data-popup-base-id="136:521"], #popup-136-579, .os-floating-window[data-popup-base-id="136:579"], #popup-145-1045, #popup-136-730, #popup-155-1214, #popup-136-836, #popup-136-890, #popup-136-942) :is([data-node-name="Workspace badge"], [data-node-name="Single workflow badge"]) * {
+  color: var(--pop-accent-dark) !important;
+}
+
+/* 3. Vibrant Primary CTA Buttons Across All Popups */
+:is(
+  [data-node-id="136:412"], [data-node-id="152:28"],
+  [data-node-id="174:7"], [data-node-id="183:342"],
+  [data-node-id="183:183"], [data-node-id="187:77"],
+  [data-node-id="154:140"], [data-node-id="183:480"],
+  [data-node-id="155:1335"], [data-node-id="183:272"],
+  [data-node-id="136:939"], [data-node-id="183:135"]
+) {
+  background: var(--pop-cta-grad, linear-gradient(135deg, #0284C7, #2563EB)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16) !important;
+  transition: transform 0.30s ease, box-shadow 0.30s ease, filter 0.30s ease !important;
+}
+:is(
+  [data-node-id="136:412"], [data-node-id="152:28"],
+  [data-node-id="174:7"], [data-node-id="183:342"],
+  [data-node-id="183:183"], [data-node-id="187:77"],
+  [data-node-id="154:140"], [data-node-id="183:480"],
+  [data-node-id="155:1335"], [data-node-id="183:272"],
+  [data-node-id="136:939"], [data-node-id="183:135"]
+):hover {
+  transform: translateY(-1.5px) !important;
+  filter: brightness(1.06);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.24) !important;
+}
+:is(
+  [data-node-id="136:412"], [data-node-id="152:28"],
+  [data-node-id="174:7"], [data-node-id="183:342"],
+  [data-node-id="183:183"], [data-node-id="187:77"],
+  [data-node-id="154:140"], [data-node-id="183:480"],
+  [data-node-id="155:1335"], [data-node-id="183:272"],
+  [data-node-id="136:939"], [data-node-id="183:135"]
+) * {
+  color: #FFFFFF !important;
+}
+
+/* 4. Semantic Color Pill & Button Groupings (Sky, Emerald, Amber, Rose, Indigo) */
+/* Sky / Cyan pills & action chips */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="136:404"], [data-node-id="152:19"], [data-node-id="152:22"],
+  [data-node-id="183:154"], [data-node-id="183:297"],
+  [data-node-id="154:104"], [data-node-id="154:108"], [data-node-id="154:112"], [data-node-id="154:116"], [data-node-id="154:120"],
+  [data-node-id="183:365"], [data-node-id="183:425"], [data-node-id="183:451"], [data-node-id="183:473"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"],
+  [data-node-id="181:4"], [data-node-id="181:26"],
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="183:48"], [data-node-id="183:75"], [data-node-id="183:102"], [data-node-id="183:126"]
+) {
+  background: #E0F2FE !important;
+  border: 1px solid #7DD3FC !important;
+}
+body:not(.dock-theme-dark) :is(
+  [data-node-id="136:404"], [data-node-id="152:19"], [data-node-id="152:22"],
+  [data-node-id="183:154"], [data-node-id="183:297"],
+  [data-node-id="154:104"], [data-node-id="154:108"], [data-node-id="154:112"], [data-node-id="154:116"], [data-node-id="154:120"],
+  [data-node-id="183:365"], [data-node-id="183:425"], [data-node-id="183:451"], [data-node-id="183:473"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"],
+  [data-node-id="181:4"], [data-node-id="181:26"],
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="183:48"], [data-node-id="183:75"], [data-node-id="183:102"], [data-node-id="183:126"]
+) * {
+  color: #0369A1 !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="136:404"], [data-node-id="152:19"], [data-node-id="152:22"],
+  [data-node-id="183:154"], [data-node-id="183:297"],
+  [data-node-id="154:104"], [data-node-id="154:108"], [data-node-id="154:112"], [data-node-id="154:116"], [data-node-id="154:120"],
+  [data-node-id="183:365"], [data-node-id="183:425"], [data-node-id="183:451"], [data-node-id="183:473"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"],
+  [data-node-id="181:4"], [data-node-id="181:26"],
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="183:48"], [data-node-id="183:75"], [data-node-id="183:102"], [data-node-id="183:126"]
+) {
+  background: #0C2D48 !important;
+  border: 1px solid #0284C7 !important;
+}
+body.dock-theme-dark :is(
+  [data-node-id="136:404"], [data-node-id="152:19"], [data-node-id="152:22"],
+  [data-node-id="183:154"], [data-node-id="183:297"],
+  [data-node-id="154:104"], [data-node-id="154:108"], [data-node-id="154:112"], [data-node-id="154:116"], [data-node-id="154:120"],
+  [data-node-id="183:365"], [data-node-id="183:425"], [data-node-id="183:451"], [data-node-id="183:473"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"],
+  [data-node-id="181:4"], [data-node-id="181:26"],
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="183:48"], [data-node-id="183:75"], [data-node-id="183:102"], [data-node-id="183:126"]
+) * {
+  color: #7DD3FC !important;
+}
+
+/* Emerald verified / compliant pills & action buttons */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="136:358"], [data-node-id="171:35"], [data-node-id="171:62"],
+  [data-node-id="183:301"], [data-node-id="183:316"],
+  [data-node-id="183:151"], [data-node-id="183:159"], [data-node-id="183:171"],
+  [data-node-id="187:44"], [data-node-id="187:51"],
+  [data-node-id="183:395"], [data-node-id="183:446"], [data-node-id="183:468"],
+  [data-node-id="183:449"], [data-node-id="183:471"],
+  [data-node-id="155:1243"], [data-node-id="155:1272"], [data-node-id="155:1297"],
+  [data-node-id="183:237"], [data-node-id="183:255"], [data-node-id="183:262"],
+  [data-node-id="181:77"], [data-node-id="181:79"],
+  [data-node-id="183:8"], [data-node-id="183:27"], [data-node-id="183:57"],
+  [data-node-id="183:84"], [data-node-id="183:111"],
+  [data-node-id="183:50"], [data-node-id="183:77"], [data-node-id="183:104"], [data-node-id="183:128"]
+) {
+  background: #ECFDF5 !important;
+  border: 1px solid #6EE7B7 !important;
+}
+body:not(.dock-theme-dark) :is(
+  [data-node-id="136:358"], [data-node-id="171:35"], [data-node-id="171:62"],
+  [data-node-id="183:301"], [data-node-id="183:316"],
+  [data-node-id="183:151"], [data-node-id="183:159"], [data-node-id="183:171"],
+  [data-node-id="187:44"], [data-node-id="187:51"],
+  [data-node-id="183:395"], [data-node-id="183:446"], [data-node-id="183:468"],
+  [data-node-id="183:449"], [data-node-id="183:471"],
+  [data-node-id="155:1243"], [data-node-id="155:1272"], [data-node-id="155:1297"],
+  [data-node-id="183:237"], [data-node-id="183:255"], [data-node-id="183:262"],
+  [data-node-id="181:77"], [data-node-id="181:79"],
+  [data-node-id="183:8"], [data-node-id="183:27"], [data-node-id="183:57"],
+  [data-node-id="183:84"], [data-node-id="183:111"],
+  [data-node-id="183:50"], [data-node-id="183:77"], [data-node-id="183:104"], [data-node-id="183:128"]
+) * {
+  color: #047857 !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="136:358"], [data-node-id="171:35"], [data-node-id="171:62"],
+  [data-node-id="183:301"], [data-node-id="183:316"],
+  [data-node-id="183:151"], [data-node-id="183:159"], [data-node-id="183:171"],
+  [data-node-id="187:44"], [data-node-id="187:51"],
+  [data-node-id="183:395"], [data-node-id="183:446"], [data-node-id="183:468"],
+  [data-node-id="183:449"], [data-node-id="183:471"],
+  [data-node-id="155:1243"], [data-node-id="155:1272"], [data-node-id="155:1297"],
+  [data-node-id="183:237"], [data-node-id="183:255"], [data-node-id="183:262"],
+  [data-node-id="181:77"], [data-node-id="181:79"],
+  [data-node-id="183:8"], [data-node-id="183:27"], [data-node-id="183:57"],
+  [data-node-id="183:84"], [data-node-id="183:111"],
+  [data-node-id="183:50"], [data-node-id="183:77"], [data-node-id="183:104"], [data-node-id="183:128"]
+) {
+  background: #062E22 !important;
+  border: 1px solid #059669 !important;
+}
+body.dock-theme-dark :is(
+  [data-node-id="136:358"], [data-node-id="171:35"], [data-node-id="171:62"],
+  [data-node-id="183:301"], [data-node-id="183:316"],
+  [data-node-id="183:151"], [data-node-id="183:159"], [data-node-id="183:171"],
+  [data-node-id="187:44"], [data-node-id="187:51"],
+  [data-node-id="183:395"], [data-node-id="183:446"], [data-node-id="183:468"],
+  [data-node-id="183:449"], [data-node-id="183:471"],
+  [data-node-id="155:1243"], [data-node-id="155:1272"], [data-node-id="155:1297"],
+  [data-node-id="183:237"], [data-node-id="183:255"], [data-node-id="183:262"],
+  [data-node-id="181:77"], [data-node-id="181:79"],
+  [data-node-id="183:8"], [data-node-id="183:27"], [data-node-id="183:57"],
+  [data-node-id="183:84"], [data-node-id="183:111"],
+  [data-node-id="183:50"], [data-node-id="183:77"], [data-node-id="183:104"], [data-node-id="183:128"]
+) * {
+  color: #6EE7B7 !important;
+}
+
+/* Amber / Gold warning & workflow pills / buttons */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="171:18"], [data-node-id="178:5"],
+  [data-node-id="183:287"], [data-node-id="183:324"], [data-node-id="183:165"],
+  [data-node-id="154:20"], [data-node-id="154:100"], [data-node-id="154:126"], [data-node-id="163:6"],
+  [data-node-id="183:370"], [data-node-id="183:415"],
+  [data-node-id="155:1246"], [data-node-id="155:1322"],
+  [data-node-id="183:239"], [data-node-id="183:246"], [data-node-id="183:257"],
+  [data-node-id="181:20"], [data-node-id="181:31"], [data-node-id="181:37"]
+) {
+  background: #FEF3C7 !important;
+  border: 1px solid #FCD34D !important;
+}
+body:not(.dock-theme-dark) :is(
+  [data-node-id="171:18"], [data-node-id="178:5"],
+  [data-node-id="183:287"], [data-node-id="183:324"], [data-node-id="183:165"],
+  [data-node-id="154:20"], [data-node-id="154:100"], [data-node-id="154:126"], [data-node-id="163:6"],
+  [data-node-id="183:370"], [data-node-id="183:415"],
+  [data-node-id="155:1246"], [data-node-id="155:1322"],
+  [data-node-id="183:239"], [data-node-id="183:246"], [data-node-id="183:257"],
+  [data-node-id="181:20"], [data-node-id="181:31"], [data-node-id="181:37"]
+) * {
+  color: #B45309 !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="171:18"], [data-node-id="178:5"],
+  [data-node-id="183:287"], [data-node-id="183:324"], [data-node-id="183:165"],
+  [data-node-id="154:20"], [data-node-id="154:100"], [data-node-id="154:126"], [data-node-id="163:6"],
+  [data-node-id="183:370"], [data-node-id="183:415"],
+  [data-node-id="155:1246"], [data-node-id="155:1322"],
+  [data-node-id="183:239"], [data-node-id="183:246"], [data-node-id="183:257"],
+  [data-node-id="181:20"], [data-node-id="181:31"], [data-node-id="181:37"]
+) {
+  background: #2E1F08 !important;
+  border: 1px solid #D97706 !important;
+}
+body.dock-theme-dark :is(
+  [data-node-id="171:18"], [data-node-id="178:5"],
+  [data-node-id="183:287"], [data-node-id="183:324"], [data-node-id="183:165"],
+  [data-node-id="154:20"], [data-node-id="154:100"], [data-node-id="154:126"], [data-node-id="163:6"],
+  [data-node-id="183:370"], [data-node-id="183:415"],
+  [data-node-id="155:1246"], [data-node-id="155:1322"],
+  [data-node-id="183:239"], [data-node-id="183:246"], [data-node-id="183:257"],
+  [data-node-id="181:20"], [data-node-id="181:31"], [data-node-id="181:37"]
+) * {
+  color: #FCD34D !important;
+}
+
+/* Rose / Crimson blocker & hard-stop pills / buttons */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="171:37"], [data-node-id="183:289"], [data-node-id="183:293"],
+  [data-node-id="183:306"], [data-node-id="187:24"], [data-node-id="187:57"], [data-node-id="187:64"],
+  [data-node-id="155:1249"], [data-node-id="183:202"], [data-node-id="183:228"],
+  [data-node-id="181:10"], [data-node-id="181:42"], [data-node-id="181:48"],
+  [data-node-id="181:53"], [data-node-id="181:87"], [data-node-id="181:89"]
+) {
+  background: #FFE4E6 !important;
+  border: 1px solid #FDA4AF !important;
+}
+body:not(.dock-theme-dark) :is(
+  [data-node-id="171:37"], [data-node-id="183:289"], [data-node-id="183:293"],
+  [data-node-id="183:306"], [data-node-id="187:24"], [data-node-id="187:57"], [data-node-id="187:64"],
+  [data-node-id="155:1249"], [data-node-id="183:202"], [data-node-id="183:228"],
+  [data-node-id="181:10"], [data-node-id="181:42"], [data-node-id="181:48"],
+  [data-node-id="181:53"], [data-node-id="181:87"], [data-node-id="181:89"]
+) * {
+  color: #BE123C !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="171:37"], [data-node-id="183:289"], [data-node-id="183:293"],
+  [data-node-id="183:306"], [data-node-id="187:24"], [data-node-id="187:57"], [data-node-id="187:64"],
+  [data-node-id="155:1249"], [data-node-id="183:202"], [data-node-id="183:228"],
+  [data-node-id="181:10"], [data-node-id="181:42"], [data-node-id="181:48"],
+  [data-node-id="181:53"], [data-node-id="181:87"], [data-node-id="181:89"]
+) {
+  background: #38101C !important;
+  border: 1px solid #E11D48 !important;
+}
+body.dock-theme-dark :is(
+  [data-node-id="171:37"], [data-node-id="183:289"], [data-node-id="183:293"],
+  [data-node-id="183:306"], [data-node-id="187:24"], [data-node-id="187:57"], [data-node-id="187:64"],
+  [data-node-id="155:1249"], [data-node-id="183:202"], [data-node-id="183:228"],
+  [data-node-id="181:10"], [data-node-id="181:42"], [data-node-id="181:48"],
+  [data-node-id="181:53"], [data-node-id="181:87"], [data-node-id="181:89"]
+) * {
+  color: #FDA4AF !important;
+}
+
+/* Indigo / Violet policy & agent pills / buttons */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="183:295"], [data-node-id="183:332"],
+  [data-node-id="183:368"], [data-node-id="183:405"],
+  [data-node-id="181:7"], [data-node-id="181:59"], [data-node-id="181:65"]
+) {
+  background: #E0E7FF !important;
+  border: 1px solid #A5B4FC !important;
+}
+body:not(.dock-theme-dark) :is(
+  [data-node-id="183:295"], [data-node-id="183:332"],
+  [data-node-id="183:368"], [data-node-id="183:405"],
+  [data-node-id="181:7"], [data-node-id="181:59"], [data-node-id="181:65"]
+) * {
+  color: #4338CA !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="183:295"], [data-node-id="183:332"],
+  [data-node-id="183:368"], [data-node-id="183:405"],
+  [data-node-id="181:7"], [data-node-id="181:59"], [data-node-id="181:65"]
+) {
+  background: #1E1B4B !important;
+  border: 1px solid #4F46E5 !important;
+}
+body.dock-theme-dark :is(
+  [data-node-id="183:295"], [data-node-id="183:332"],
+  [data-node-id="183:368"], [data-node-id="183:405"],
+  [data-node-id="181:7"], [data-node-id="181:59"], [data-node-id="181:65"]
+) * {
+  color: #A5B4FC !important;
+}
+
+/* Avatar circle in Cross-Team Agreement */
+[data-node-id="183:359"] {
+  background: linear-gradient(135deg, #0D9488, #0284C7) !important;
+  border: 2px solid #5EEAD4 !important;
+}
+[data-node-id="183:359"] * {
+  color: #FFFFFF !important;
+}
+
+/* 5. Left-Stripe & Top-Stripe Color Accents on Cards */
+:is(
+  [data-node-id="136:361"], [data-node-id="152:4"], [data-node-id="152:14"],
+  [data-node-id="154:38"], [data-node-id="183:419"], [data-node-id="181:17"]
+) {
+  border-left: 4px solid #0284C7 !important;
+  --card-ring-color: #0284C7;
+}
+:is(
+  [data-node-id="171:52"], [data-node-id="183:300"], [data-node-id="183:310"],
+  [data-node-id="183:158"], [data-node-id="183:170"], [data-node-id="187:41"],
+  [data-node-id="154:83"], [data-node-id="183:389"], [data-node-id="183:453"],
+  [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="183:261"],
+  [data-node-id="183:22"], [data-node-id="183:52"], [data-node-id="183:79"], [data-node-id="183:106"]
+) {
+  border-left: 4px solid #10B981 !important;
+  --card-ring-color: #10B981;
+}
+:is(
+  [data-node-id="171:77"], [data-node-id="183:319"], [data-node-id="183:164"],
+  [data-node-id="154:23"], [data-node-id="183:409"], [data-node-id="183:431"],
+  [data-node-id="155:1303"], [data-node-id="183:243"], [data-node-id="181:28"]
+) {
+  border-left: 4px solid #F59E0B !important;
+  --card-ring-color: #F59E0B;
+}
+:is(
+  [data-node-id="171:27"], [data-node-id="183:305"], [data-node-id="187:54"],
+  [data-node-id="154:53"], [data-node-id="183:225"], [data-node-id="181:39"]
+) {
+  border-left: 4px solid #E11D48 !important;
+  --card-ring-color: #E11D48;
+}
+:is(
+  [data-node-id="183:327"], [data-node-id="187:67"], [data-node-id="154:68"],
+  [data-node-id="183:399"], [data-node-id="181:50"]
+) {
+  border-left: 4px solid #6366F1 !important;
+  --card-ring-color: #6366F1;
+}
+
+/* Top-stripe KPI & Gauge tiles */
+:is([data-node-id="183:374"], [data-node-id="183:12"], [data-node-id="187:28"]) {
+  border-top: 3.5px solid #0284C7 !important;
+  --card-ring-color: #0284C7;
+}
+:is([data-node-id="183:378"], [data-node-id="187:32"]) {
+  border-top: 3.5px solid #6366F1 !important;
+  --card-ring-color: #6366F1;
+}
+:is([data-node-id="183:382"], [data-node-id="183:15"], [data-node-id="183:18"], [data-node-id="187:36"]) {
+  border-top: 3.5px solid #10B981 !important;
+  --card-ring-color: #10B981;
+}
+:is([data-node-id="183:206"], [data-node-id="183:212"]) {
+  border-top: 3.5px solid #E11D48 !important;
+  --card-ring-color: #E11D48;
+}
+[data-node-id="183:218"] {
+  border-top: 3.5px solid #F59E0B !important;
+  --card-ring-color: #F59E0B;
+}
+
+/* 6. Tactile Interactive Cards System (Hover Lift + Press + Click-to-Select) */
+:is(
+  [data-node-id="136:404"], [data-node-id="136:407"], [data-node-id="152:14"],
+  [data-node-id="171:27"], [data-node-id="171:52"], [data-node-id="171:77"],
+  [data-node-id="183:300"], [data-node-id="183:305"],
+  [data-node-id="183:310"], [data-node-id="183:319"], [data-node-id="183:327"],
+  [data-node-id="183:158"], [data-node-id="183:164"], [data-node-id="183:170"],
+  [data-node-id="187:28"], [data-node-id="187:32"], [data-node-id="187:36"],
+  [data-node-id="187:41"], [data-node-id="187:54"], [data-node-id="187:67"],
+  [data-node-id="154:23"], [data-node-id="154:38"], [data-node-id="154:53"], [data-node-id="154:68"], [data-node-id="154:83"],
+  [data-node-id="183:374"], [data-node-id="183:378"], [data-node-id="183:382"],
+  [data-node-id="183:389"], [data-node-id="183:399"], [data-node-id="183:409"], [data-node-id="183:419"],
+  [data-node-id="183:431"], [data-node-id="183:453"], #my-agent-extra-tickets-list > *,
+  [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="155:1303"],
+  [data-node-id="183:206"], [data-node-id="183:212"], [data-node-id="183:218"],
+  [data-node-id="183:225"], [data-node-id="183:243"], [data-node-id="183:261"],
+  [data-node-id="181:17"], [data-node-id="181:28"], [data-node-id="181:39"], [data-node-id="181:50"],
+  [data-node-id="181:71"], [data-node-id="181:81"],
+  [data-node-id="183:12"], [data-node-id="183:15"], [data-node-id="183:18"],
+  [data-node-id="183:22"], [data-node-id="183:52"], [data-node-id="183:79"], [data-node-id="183:106"],
+  .drive-doc-row, .workload-route-card, .trash-item-row
+) {
+  cursor: pointer !important;
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.42s ease,
+    background-color 0.42s ease !important;
+}
+
+body:not(.dock-theme-dark) :is(
+  [data-node-id="136:404"], [data-node-id="136:407"], [data-node-id="152:14"],
+  [data-node-id="171:27"], [data-node-id="171:52"], [data-node-id="171:77"],
+  [data-node-id="183:300"], [data-node-id="183:305"],
+  [data-node-id="183:310"], [data-node-id="183:319"], [data-node-id="183:327"],
+  [data-node-id="183:158"], [data-node-id="183:164"], [data-node-id="183:170"],
+  [data-node-id="187:28"], [data-node-id="187:32"], [data-node-id="187:36"],
+  [data-node-id="187:41"], [data-node-id="187:54"], [data-node-id="187:67"],
+  [data-node-id="154:23"], [data-node-id="154:38"], [data-node-id="154:53"], [data-node-id="154:68"], [data-node-id="154:83"],
+  [data-node-id="183:374"], [data-node-id="183:378"], [data-node-id="183:382"],
+  [data-node-id="183:389"], [data-node-id="183:399"], [data-node-id="183:409"], [data-node-id="183:419"],
+  [data-node-id="183:431"], [data-node-id="183:453"], #my-agent-extra-tickets-list > *,
+  [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="155:1303"],
+  [data-node-id="183:206"], [data-node-id="183:212"], [data-node-id="183:218"],
+  [data-node-id="183:225"], [data-node-id="183:243"], [data-node-id="183:261"],
+  [data-node-id="181:17"], [data-node-id="181:28"], [data-node-id="181:39"], [data-node-id="181:50"],
+  [data-node-id="181:71"], [data-node-id="181:81"],
+  [data-node-id="183:12"], [data-node-id="183:15"], [data-node-id="183:18"],
+  [data-node-id="183:22"], [data-node-id="183:52"], [data-node-id="183:79"], [data-node-id="183:106"],
+  .drive-doc-row, .workload-route-card, .trash-item-row
+):hover {
+  transform: translateY(-3.5px) scale(1.018) !important;
+  border-color: var(--card-ring-color, #0284C7) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.13), 0 0 0 1.5px var(--card-ring-color, #0284C7) !important;
+}
+
+body.dock-theme-dark :is(
+  [data-node-id="136:404"], [data-node-id="136:407"], [data-node-id="152:14"],
+  [data-node-id="171:27"], [data-node-id="171:52"], [data-node-id="171:77"],
+  [data-node-id="183:300"], [data-node-id="183:305"],
+  [data-node-id="183:310"], [data-node-id="183:319"], [data-node-id="183:327"],
+  [data-node-id="183:158"], [data-node-id="183:164"], [data-node-id="183:170"],
+  [data-node-id="187:28"], [data-node-id="187:32"], [data-node-id="187:36"],
+  [data-node-id="187:41"], [data-node-id="187:54"], [data-node-id="187:67"],
+  [data-node-id="154:23"], [data-node-id="154:38"], [data-node-id="154:53"], [data-node-id="154:68"], [data-node-id="154:83"],
+  [data-node-id="183:374"], [data-node-id="183:378"], [data-node-id="183:382"],
+  [data-node-id="183:389"], [data-node-id="183:399"], [data-node-id="183:409"], [data-node-id="183:419"],
+  [data-node-id="183:431"], [data-node-id="183:453"], #my-agent-extra-tickets-list > *,
+  [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="155:1303"],
+  [data-node-id="183:206"], [data-node-id="183:212"], [data-node-id="183:218"],
+  [data-node-id="183:225"], [data-node-id="183:243"], [data-node-id="183:261"],
+  [data-node-id="181:17"], [data-node-id="181:28"], [data-node-id="181:39"], [data-node-id="181:50"],
+  [data-node-id="181:71"], [data-node-id="181:81"],
+  [data-node-id="183:12"], [data-node-id="183:15"], [data-node-id="183:18"],
+  [data-node-id="183:22"], [data-node-id="183:52"], [data-node-id="183:79"], [data-node-id="183:106"],
+  .drive-doc-row, .workload-route-card, .trash-item-row
+):hover {
+  transform: translateY(-3.5px) scale(1.018) !important;
+  border-color: var(--card-ring-color, #38BDF8) !important;
+  box-shadow: 0 14px 32px rgba(2, 6, 23, 0.62), 0 0 0 1.5px var(--card-ring-color, #38BDF8) !important;
+}
+
+/* Selected / Focused Card Ring State (`.is-card-selected` & `.wf-type-selected`) */
+body:not(.dock-theme-dark) .is-card-selected,
+body:not(.dock-theme-dark) [data-api-action="select-wf-type"].wf-type-selected,
+body:not(.dock-theme-dark) .workload-route-card.is-highlighted-route {
+  background: #F0F9FF !important;
+  border-color: var(--card-ring-color, #0284C7) !important;
+  box-shadow: 0 0 0 2px var(--card-ring-color, #0284C7), 0 10px 24px rgba(2, 132, 199, 0.14) !important;
+  transform: translateY(-1px) !important;
+}
+
+body.dock-theme-dark .is-card-selected,
+body.dock-theme-dark [data-api-action="select-wf-type"].wf-type-selected,
+body.dock-theme-dark .workload-route-card.is-highlighted-route {
+  background: #0F253A !important;
+  border-color: var(--card-ring-color, #38BDF8) !important;
+  box-shadow: 0 0 0 2px var(--card-ring-color, #38BDF8), 0 10px 26px rgba(56, 189, 248, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Source file chips in Deliverables & Claim Fixes hover cue */
+:is(
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"]
+) {
+  cursor: pointer !important;
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.40s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+:is(
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"]
+):hover {
+  transform: translateY(-3px) scale(1.09) !important;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.28) !important;
+}

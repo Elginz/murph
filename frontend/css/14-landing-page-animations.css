@@ -1,0 +1,490 @@
+/* 14-landing-page-animations.css — Interactive Story Mode & Motion on #screen-intro */
+
+/* 1. Dynamic Height Flexibility for Expandable Sections & Cards */
+#screen-intro [data-node-id="102:3288"] { height: auto !important; min-height: 960px !important; }
+#screen-intro [data-node-id="102:3296"] {
+  height: auto !important; min-height: 442px !important;
+  transition: transform 0.56s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.48s ease, box-shadow 0.56s ease !important;
+}
+#screen-intro [data-node-id="102:3296"]:hover {
+  border-color: rgba(67, 217, 230, 0.55) !important;
+  box-shadow: 0 26px 64px -12px rgba(2, 6, 23, 0.85), 0 0 36px rgba(67, 217, 230, 0.16) !important;
+}
+#screen-intro [data-node-id="102:3357"] { height: auto !important; min-height: 800px !important; }
+#screen-intro [data-node-id="102:3368"] { height: auto !important; min-height: 540px !important; align-items: flex-start !important; }
+#screen-intro [data-node-id="102:3369"] {
+  min-height: 540px !important; height: auto !important;
+  transition: border-color 0.48s ease, box-shadow 0.56s ease !important;
+}
+#screen-intro [data-node-id="102:3369"]:hover {
+  border-color: rgba(67, 217, 230, 0.52) !important;
+  box-shadow: 0 24px 60px -12px rgba(2, 6, 23, 0.86), 0 0 34px rgba(89, 108, 255, 0.18) !important;
+}
+#screen-intro [data-node-id="102:3378"] { height: 478px !important; min-height: 478px !important; flex: 0 0 478px !important; }
+#screen-intro [data-node-id="102:3438"] { overflow: visible !important; }
+#screen-intro [data-node-id="102:3469"] { height: auto !important; min-height: 720px !important; }
+#screen-intro [data-node-id="102:3484"], #screen-intro [data-node-id="102:3502"],
+#screen-intro [data-node-id="102:3521"], #screen-intro [data-node-id="102:3539"] {
+  height: auto !important; min-height: 196px !important; align-items: flex-start !important;
+}
+#screen-intro [data-node-name="Stage content"] {
+  flex: 1 1 0% !important; min-width: 240px !important;
+  display: flex !important; flex-direction: column !important; align-items: stretch !important;
+}
+
+/* 2. Staggered Scroll-Reveal Entrance Animations (~0.88s smooth ease) */
+#screen-intro .intro-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(0.975);
+  transition: opacity 0.88s cubic-bezier(0.22, 1, 0.36, 1), transform 0.88s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+#screen-intro .intro-reveal-item.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* 3. Top Navigation Bar Wordmark, Route Pills & Active Section Tracking */
+#screen-intro [data-node-id="102:3237"] {
+  transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1), filter 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3237"]:hover {
+  transform: translateY(-1.5px) scale(1.07);
+  filter: drop-shadow(0 0 14px rgba(67, 217, 230, 0.55));
+}
+#screen-intro [data-node-id="102:3243"],
+#screen-home [data-node-id="99:280"] {
+  display: none !important;
+}
+#screen-intro [data-node-id="102:3239"],
+#screen-intro [data-node-id="102:3241"] {
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), background 0.42s ease, border-color 0.42s ease, box-shadow 0.42s ease !important;
+}
+#screen-intro [data-node-id="102:3239"]:hover,
+#screen-intro [data-node-id="102:3241"]:hover,
+#screen-intro [data-node-id="102:3239"].is-route-active,
+#screen-intro [data-node-id="102:3241"].is-route-active {
+  transform: translateY(-2px) scale(1.06);
+  background: rgba(67, 217, 230, 0.14) !important;
+  border-color: rgba(67, 217, 230, 0.55) !important;
+  box-shadow: 0 6px 18px rgba(67, 217, 230, 0.22);
+}
+#screen-intro [data-node-id="102:3239"]:hover [data-node-name="Label"],
+#screen-intro [data-node-id="102:3241"]:hover [data-node-name="Label"],
+#screen-intro [data-node-id="102:3239"].is-route-active [data-node-name="Label"],
+#screen-intro [data-node-id="102:3241"].is-route-active [data-node-name="Label"] {
+  color: #B9F9FF !important;
+}
+
+/* 4. Hero Ambient Orb, Section Badges & Status Dots */
+#screen-intro [data-node-id="102:3289"] {
+  animation: murphIntroHeroGlowFloat 9.6s ease-in-out infinite;
+}
+@keyframes murphIntroHeroGlowFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0px) scale(1); opacity: 0.88; }
+  50% { transform: translateX(-50%) translateY(18px) scale(1.1); opacity: 1; }
+}
+#screen-intro [data-node-id="102:3291"],
+#screen-intro [data-node-id="102:3360"],
+#screen-intro [data-node-id="102:3472"] {
+  transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.44s ease, box-shadow 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3291"]:hover,
+#screen-intro [data-node-id="102:3360"]:hover,
+#screen-intro [data-node-id="102:3472"]:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(67, 217, 230, 0.72) !important;
+  box-shadow: 0 0 22px rgba(67, 217, 230, 0.28);
+}
+#screen-intro [data-node-id="102:3292"], #screen-intro [data-node-id="102:3361"],
+#screen-intro [data-node-id="102:3473"], #screen-intro [data-node-id="102:3366"],
+#screen-intro [data-node-id="102:3480"], #screen-intro [data-node-id="102:3497"],
+#screen-intro [data-node-id="102:3515"], #screen-intro [data-node-id="102:3534"],
+#screen-intro [data-node-id="102:3552"] {
+  animation: murphIntroBadgeDotPulse 2.8s ease-in-out infinite;
+}
+@keyframes murphIntroBadgeDotPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 6px rgba(67, 217, 230, 0.55); }
+  50% { transform: scale(1.42); box-shadow: 0 0 14px rgba(97, 230, 176, 0.95); }
+}
+
+/* 5. Hero Console Log Hover, Demo Prompt Bar & RUN Launch Animations */
+#screen-intro [data-node-id="102:3311"],
+#screen-intro [data-node-id="102:3315"],
+#screen-intro [data-node-id="102:3319"],
+#screen-intro [data-node-id="102:3323"],
+#screen-intro [data-node-id="102:3327"] {
+  padding: 5px 10px !important;
+  margin: -3px -10px !important;
+  border-radius: 7px !important;
+  border-left: 2px solid transparent !important;
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1), background 0.40s ease, border-color 0.40s ease !important;
+  cursor: pointer;
+}
+#screen-intro [data-node-id="102:3310"] [data-node-name="Timestamp"] {
+  white-space: nowrap !important;
+  min-width: 74px !important;
+}
+#screen-intro [data-node-id="102:3310"] [data-node-name="Source"] {
+  white-space: nowrap !important;
+  min-width: 132px !important;
+}
+#screen-intro [data-node-id="102:3311"]:hover,
+#screen-intro [data-node-id="102:3315"]:hover,
+#screen-intro [data-node-id="102:3319"]:hover,
+#screen-intro [data-node-id="102:3323"]:hover,
+#screen-intro [data-node-id="102:3327"]:hover {
+  transform: translateX(6px);
+  background: rgba(67, 217, 230, 0.08) !important;
+  border-left-color: #43D9E6 !important;
+}
+#screen-intro .is-console-line-fresh {
+  animation: murphIntroConsoleLineFlash 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes murphIntroConsoleLineFlash {
+  0% { opacity: 0; transform: translateX(-14px); background: rgba(67, 217, 230, 0.18); }
+  60% { opacity: 1; transform: translateX(3px); background: rgba(67, 217, 230, 0.1); }
+  100% { opacity: 1; transform: translateX(0); background: transparent; }
+}
+#screen-intro [data-node-id="102:3332"],
+#screen-intro [data-node-id="102:3335"],
+#screen-intro [data-node-id="102:3337"] {
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.40s ease, border-color 0.40s ease !important;
+  cursor: pointer;
+}
+#screen-intro [data-node-id="102:3332"]:hover,
+#screen-intro [data-node-id="102:3335"]:hover,
+#screen-intro [data-node-id="102:3337"]:hover {
+  transform: translateY(-2.5px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(67, 217, 230, 0.22);
+}
+
+.intro-console-demo-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 0 2px;
+}
+.intro-console-demo-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #7DD3FC;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.intro-console-demo-chip {
+  appearance: none;
+  border: 1px solid rgba(67, 217, 230, 0.32);
+  background: rgba(11, 17, 41, 0.85);
+  color: #E2E8F0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1), background 0.36s ease, border-color 0.36s ease, box-shadow 0.36s ease, color 0.36s ease;
+}
+.intro-console-demo-chip:hover {
+  transform: translateY(-2.5px) scale(1.06);
+  background: rgba(67, 217, 230, 0.16);
+  border-color: #43D9E6;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(67, 217, 230, 0.24);
+}
+.intro-console-demo-chip.is-active-demo-chip {
+  background: linear-gradient(135deg, rgba(89, 108, 255, 0.34) 0%, rgba(67, 217, 230, 0.34) 100%);
+  border-color: #61E6B0;
+  color: #FFFFFF;
+  box-shadow: 0 0 18px rgba(97, 230, 176, 0.32);
+}
+#screen-intro [data-node-id="102:3344"] {
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.40s ease, filter 0.40s ease !important;
+}
+#screen-intro [data-node-id="102:3344"]:hover {
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 0 28px rgba(67, 217, 230, 0.65) !important;
+}
+#screen-intro [data-node-id="102:3344"].is-launching {
+  animation: murphRunBtnPulse 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 6. Interactive All-to-All Agent Mesh Nodes, Flowing Edges & Live Inspector */
+#screen-intro [data-node-id="102:3388"], #screen-intro [data-node-id="102:3393"],
+#screen-intro [data-node-id="102:3398"], #screen-intro [data-node-id="102:3403"],
+#screen-intro [data-node-id="102:3408"], #screen-intro [data-node-id="102:3413"],
+#screen-intro [data-node-id="102:3418"], #screen-intro [data-node-id="102:3423"] {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.46s ease, border-color 0.46s ease, opacity 0.42s ease, filter 0.42s ease !important;
+  animation: murphMeshNodeFloat 6.4s ease-in-out infinite;
+}
+#screen-intro [data-node-id="102:3393"] { animation-delay: -1.2s; }
+#screen-intro [data-node-id="102:3398"] { animation-delay: -2.4s; }
+#screen-intro [data-node-id="102:3403"] { animation-delay: -3.6s; }
+#screen-intro [data-node-id="102:3408"] { animation: murphHubAuraPulse 4.6s ease-in-out infinite; }
+#screen-intro [data-node-id="102:3413"] { animation-delay: -0.8s; }
+#screen-intro [data-node-id="102:3418"] { animation-delay: -2.0s; }
+#screen-intro [data-node-id="102:3423"] { animation-delay: -3.2s; }
+
+@keyframes murphMeshNodeFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+@keyframes murphHubAuraPulse {
+  0%, 100% { translate: 0 0; box-shadow: 0 0 22px rgba(67, 217, 230, 0.35), inset 0 0 14px rgba(67, 217, 230, 0.14); }
+  50% { translate: 0 -4px; box-shadow: 0 0 36px rgba(67, 217, 230, 0.68), inset 0 0 22px rgba(67, 217, 230, 0.26); }
+}
+
+#screen-intro [data-node-name="Agent node"]:hover,
+#screen-intro [data-node-name="Agent node"].is-mesh-node-active {
+  transform: translateY(-5px) scale(1.13) !important;
+  z-index: 25 !important;
+  border-color: #43D9E6 !important;
+  box-shadow: 0 14px 32px rgba(2, 6, 23, 0.82), 0 0 28px rgba(67, 217, 230, 0.65) !important;
+}
+#screen-intro [data-node-name="Agent node"].is-mesh-node-peer {
+  transform: translateY(-2.5px) scale(1.05) !important;
+  z-index: 15 !important;
+  border-color: rgba(97, 230, 176, 0.85) !important;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.72), 0 0 20px rgba(97, 230, 176, 0.42) !important;
+}
+#screen-intro [data-node-name="Agent node"].is-mesh-dimmed { opacity: 0.34 !important; filter: saturate(0.5); }
+
+#screen-intro [data-node-id="102:3378"] > svg.f-svg { transition: opacity 0.42s ease, filter 0.42s ease !important; }
+#screen-intro [data-node-id="102:3378"] > svg.f-svg.is-mesh-edge-active {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px #43D9E6) drop-shadow(0 0 14px #61E6B0) !important;
+  z-index: 8 !important;
+}
+#screen-intro [data-node-id="102:3378"] > svg.f-svg.is-mesh-edge-active path {
+  fill: #61E6B0 !important;
+  fill-opacity: 1 !important;
+  transform: scaleY(2.6);
+}
+#screen-intro [data-node-id="102:3378"] > svg.f-svg.is-mesh-dimmed { opacity: 0.16 !important; }
+
+#screen-intro [data-node-id="102:3428"] {
+  top: 438px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 4px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(7, 11, 24, 0.75) !important;
+  border: 1px solid rgba(67, 217, 230, 0.22) !important;
+  overflow: visible !important;
+  z-index: 20 !important;
+}
+#screen-intro [data-node-id="102:3429"],
+#screen-intro [data-node-id="102:3432"],
+#screen-intro [data-node-id="102:3435"] {
+  cursor: pointer !important;
+  padding: 3px 8px !important;
+  border-radius: 999px !important;
+  transition: transform 0.38s ease, background 0.38s ease !important;
+}
+#screen-intro [data-node-id="102:3429"]:hover,
+#screen-intro [data-node-id="102:3432"]:hover,
+#screen-intro [data-node-id="102:3435"]:hover {
+  transform: translateY(-1.5px) scale(1.06);
+  background: rgba(67, 217, 230, 0.15) !important;
+}
+
+.intro-mesh-inspector {
+  position: relative;
+  margin: 0 14px 14px;
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: rgba(7, 13, 29, 0.94);
+  border: 1px solid rgba(67, 217, 230, 0.42);
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.78);
+  transition: border-color 0.42s ease, box-shadow 0.42s ease, transform 0.42s ease;
+}
+.intro-mesh-inspector.is-active {
+  border-color: #61E6B0;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.85), 0 0 22px rgba(97, 230, 176, 0.24);
+  transform: translateY(-2px);
+}
+.intro-mesh-inspector-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.intro-mesh-inspector-name { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 800; color: #B9F9FF; }
+.intro-mesh-inspector-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #61E6B0;
+  background: rgba(97, 230, 176, 0.12);
+  border: 1px solid rgba(97, 230, 176, 0.38);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.intro-mesh-inspector-desc { font-family: 'Inter', sans-serif; font-size: 11px; line-height: 1.38; color: #CBD5E1; }
+
+/* 7. 3D Perspective Card Tilt, Spotlight Glow & Expandable Story Drawers */
+#screen-intro [data-node-id="102:3439"], #screen-intro [data-node-id="102:3449"],
+#screen-intro [data-node-id="102:3459"], #screen-intro [data-node-id="102:3484"],
+#screen-intro [data-node-id="102:3502"], #screen-intro [data-node-id="102:3521"],
+#screen-intro [data-node-id="102:3539"] {
+  position: relative !important;
+  transform: perspective(920px) rotateX(var(--tilt-rx, 0deg)) rotateY(var(--tilt-ry, 0deg)) translateY(var(--card-lift, 0px)) scale(var(--card-scale, 1));
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.44s ease, box-shadow 0.46s ease, background 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3439"]::before, #screen-intro [data-node-id="102:3449"]::before,
+#screen-intro [data-node-id="102:3459"]::before, #screen-intro [data-node-id="102:3484"]::before,
+#screen-intro [data-node-id="102:3502"]::before, #screen-intro [data-node-id="102:3521"]::before,
+#screen-intro [data-node-id="102:3539"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(360px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(67, 217, 230, 0.15), rgba(166, 92, 255, 0.06) 45%, transparent 80%);
+  transition: opacity 0.44s ease;
+  z-index: 0;
+}
+#screen-intro [data-node-id="102:3439"]:hover, #screen-intro [data-node-id="102:3449"]:hover,
+#screen-intro [data-node-id="102:3459"]:hover, #screen-intro [data-node-id="102:3484"]:hover,
+#screen-intro [data-node-id="102:3502"]:hover, #screen-intro [data-node-id="102:3521"]:hover,
+#screen-intro [data-node-id="102:3539"]:hover, #screen-intro .is-story-card-expanded {
+  --card-lift: -5px;
+  --card-scale: 1.018;
+  border-color: rgba(67, 217, 230, 0.68) !important;
+  box-shadow: 0 22px 48px -12px rgba(2, 6, 23, 0.86), 0 0 28px rgba(67, 217, 230, 0.22) !important;
+}
+#screen-intro [data-node-id="102:3439"]:hover::before, #screen-intro [data-node-id="102:3449"]:hover::before,
+#screen-intro [data-node-id="102:3459"]:hover::before, #screen-intro [data-node-id="102:3484"]:hover::before,
+#screen-intro [data-node-id="102:3502"]:hover::before, #screen-intro [data-node-id="102:3521"]:hover::before,
+#screen-intro [data-node-id="102:3539"]:hover::before, #screen-intro .is-story-card-expanded::before {
+  opacity: 1;
+}
+
+#screen-intro [data-node-id="102:3442"], #screen-intro [data-node-id="102:3452"],
+#screen-intro [data-node-id="102:3462"], #screen-intro [data-node-id="102:3651"],
+#screen-intro [data-node-id="102:3657"], #screen-intro [data-node-id="102:3663"] {
+  transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3439"]:hover [data-node-id="102:3442"],
+#screen-intro [data-node-id="102:3449"]:hover [data-node-id="102:3452"],
+#screen-intro [data-node-id="102:3459"]:hover [data-node-id="102:3462"] {
+  transform: scale(1.16) rotate(-6deg);
+  box-shadow: 0 0 18px rgba(67, 217, 230, 0.38);
+}
+#screen-intro .is-story-card-expanded [data-node-id="102:3651"],
+#screen-intro .is-story-card-expanded [data-node-id="102:3657"],
+#screen-intro .is-story-card-expanded [data-node-id="102:3663"] {
+  transform: rotate(90deg) scale(1.22);
+}
+
+#screen-intro [data-node-id="102:3485"], #screen-intro [data-node-id="102:3503"],
+#screen-intro [data-node-id="102:3522"], #screen-intro [data-node-id="102:3540"],
+#screen-intro [data-node-id="102:3485"] > *, #screen-intro [data-node-id="102:3503"] > *,
+#screen-intro [data-node-id="102:3522"] > *, #screen-intro [data-node-id="102:3540"] > * {
+  transition: transform 0.46s cubic-bezier(0.22, 1, 0.36, 1), filter 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3484"]:hover [data-node-id="102:3485"],
+#screen-intro [data-node-id="102:3502"]:hover [data-node-id="102:3503"],
+#screen-intro [data-node-id="102:3521"]:hover [data-node-id="102:3522"],
+#screen-intro [data-node-id="102:3539"]:hover [data-node-id="102:3540"],
+#screen-intro .is-story-card-expanded [data-node-name="App icon"] {
+  transform: translateY(-6px) scale(1.15);
+  filter: drop-shadow(0 10px 22px rgba(245, 168, 46, 0.45));
+}
+#screen-intro [data-node-name="Operating stage"]:hover [data-node-name="Folder tab"],
+#screen-intro .is-story-card-expanded [data-node-name="Folder tab"] { transform: translateY(-3px) scaleX(1.08); }
+#screen-intro [data-node-name="Operating stage"]:hover [data-node-name="Folder lip"],
+#screen-intro .is-story-card-expanded [data-node-name="Folder lip"] { transform: translateY(-2px) scaleY(1.3); }
+#screen-intro [data-node-name="Operating stage"]:hover [data-node-name="App indicator"],
+#screen-intro .is-story-card-expanded [data-node-name="App indicator"] { transform: scaleX(1.48); }
+
+.intro-card-story-drawer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0 11px;
+  border-radius: 8px;
+  background: rgba(7, 12, 28, 0.88);
+  border: 1px solid transparent;
+  font: 400 10.5px/1.48 'JetBrains Mono', monospace;
+  color: #D7E3F8;
+  transition: max-height 0.56s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.48s ease, margin-top 0.48s ease, padding 0.48s ease, border-color 0.48s ease;
+}
+.is-story-card-expanded .intro-card-story-drawer {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 6px;
+  padding: 9px 11px;
+  border-color: rgba(67, 217, 230, 0.42);
+}
+.intro-story-kicker {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 9.5px;
+  color: #61E6B0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.intro-story-hint {
+  width: 100%;
+  font: 700 9.5px 'JetBrains Mono', monospace;
+  color: #7DD3FC;
+  opacity: 0.85;
+  margin-top: 2px;
+  transition: opacity 0.36s ease, color 0.36s ease;
+}
+.is-story-card-expanded .intro-story-hint { color: #61E6B0; opacity: 1; }
+
+/* 8. Primary CTA Shimmer (`Try now!`) & Rotating Ship Emblem (`102:3572`) */
+#screen-intro [data-node-id="102:3354"],
+#screen-intro [data-node-id="102:3559"],
+#screen-intro [data-node-id="102:3567"] {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.44s ease, filter 0.44s ease !important;
+}
+#screen-intro [data-node-id="102:3354"]::after,
+#screen-intro [data-node-id="102:3559"]::after,
+#screen-intro [data-node-id="102:3567"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%; width: 65%; height: 100%;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  transform: skewX(-22deg);
+  pointer-events: none;
+  animation: murphIntroCtaShimmer 4.6s ease-in-out infinite;
+}
+@keyframes murphIntroCtaShimmer { 0%, 62%, 100% { left: -120%; } 36% { left: 145%; } }
+#screen-intro [data-node-id="102:3354"]:hover,
+#screen-intro [data-node-id="102:3559"]:hover,
+#screen-intro [data-node-id="102:3567"]:hover {
+  transform: translateY(-3.5px) scale(1.055);
+  box-shadow: 0 14px 36px rgba(67, 217, 230, 0.52), 0 0 24px rgba(166, 92, 255, 0.45) !important;
+}
+#screen-intro [data-node-id="102:3354"]:hover [data-node-name="arrow-up-right"],
+#screen-intro [data-node-id="102:3559"]:hover [data-node-name="arrow-up-right"],
+#screen-intro [data-node-id="102:3567"]:hover [data-node-name="arrow-up-right"] {
+  transform: translate(3px, -3px) scale(1.18);
+  transition: transform 0.40s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#screen-intro [data-node-id="102:3572"] svg {
+  animation: murphIntroShipOrbit 26s linear infinite;
+  transition: filter 0.44s ease, transform 0.44s ease;
+}
+#screen-intro [data-node-id="102:3571"]:hover [data-node-id="102:3572"] svg {
+  filter: drop-shadow(0 0 14px rgba(67, 217, 230, 0.85));
+  animation-duration: 7s;
+}
+@keyframes murphIntroShipOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

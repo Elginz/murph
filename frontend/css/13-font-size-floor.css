@@ -1,0 +1,449 @@
+/* ============================================================================
+ * 13-font-size-floor.css
+ * Readable type floor for BOTH themes, so toggling Light/Dark never shifts
+ * layout. Sizes are measured at the 1440x900 design viewport, where the home
+ * stage, floating windows (--win-scale) and the dock all render at scale 1:
+ *   tags / badges >= 10px · captions / labels >= 11px · body text >= 12px.
+ * Smaller viewports scale the whole UI proportionally (responsive stage).
+ * Figma nodes carry inline font sizes, so those overrides use !important.
+ * The topology SVG text is sized in 04d-topology-svg-builder.js.
+ * ============================================================================ */
+
+/* 1. Workflow wizard (145:1045): settlement picker, tag pills, preview bar */
+.wf-user-Picker-label,
+.wf-user-picker-label {
+  font-size: 11px;
+}
+.wf-user-select-dropdown {
+  font-size: 12px;
+  padding: 6px 9px;
+}
+.wf-footer-user-label {
+  font-size: 11px;
+}
+.wf-footer-user-select {
+  font-size: 11px;
+}
+.wf-tag-pill {
+  gap: 7px;
+  padding: 6px 11px;
+  font-size: 11px;
+}
+.wf-tag-custom-input {
+  padding: 7px 10px;
+  font-size: 12px;
+}
+.wf-settlement-preview-bar {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* 2. Ticket tag chips & the agent vetting banner on ticket cards (136:730).
+ *    The banner header and approval pills inherit this size; the debate turn
+ *    lines are 12px inline (02b-figma-state-sync.js). */
+.ticket-quick-tag-label {
+  font-size: 11px;
+}
+.ticket-tag-chip {
+  padding: 2px 8px;
+  font-size: 10.5px;
+}
+.settled-update-banner {
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* 3. Workload topology legend & hover tooltip */
+.topo-legend-chip {
+  padding: 2px 7px;
+  font-size: 10.5px;
+}
+.workload-topo-tooltip {
+  max-width: 360px;
+  font-size: 12px;
+}
+.workload-topo-tooltip-title {
+  font-size: 12.5px;
+}
+.workload-topo-tooltip-sub {
+  font-size: 11.5px;
+}
+.workload-topo-tooltip-files,
+.workload-topo-tooltip-hint {
+  font-size: 11px;
+}
+/* Route card header: full ticket titles (never cut) wrap beside the ticket
+ * badge while the shared-count / status badges stay on the right. */
+.workload-route-card-title {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+.workload-route-card-title > span:not([class]) {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+/* 4. GUIDE app & dock popup empty states */
+.murph-dock-app-blurb,
+.murph-wf-types.compact .murph-wf-type-desc {
+  font-size: 12px;
+}
+.dock-empty-files-label {
+  font-size: 11px;
+}
+
+/* 5. Gemini model switcher menu (Runtime card 99:95) */
+.gemini-model-opt-name {
+  font-size: 12px;
+  line-height: 15px;
+}
+.gemini-model-opt-id,
+.gemini-model-opt-latency {
+  font-size: 11px;
+  line-height: 14px;
+}
+.gemini-model-opt-badge {
+  padding: 2px 6px;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+/* 6. Home desktop: Figma file details (9px inline), runtime card labels and
+ *    the TRASH BIN / GUIDE tile details. Details may wrap to a second line;
+ *    each 136px-tall desktop tile has room for it. */
+#screen-home .f-desktop-item .f-text[data-node-name="Detail"] {
+  font-size: 11px !important;
+  line-height: 14px !important;
+}
+#screen-home [data-node-id="99:97"] {
+  font-size: 11px !important;
+  line-height: 14px !important;
+}
+#screen-home [data-node-id="99:105"] {
+  font-size: 10px !important;
+  line-height: 13px !important;
+}
+.desktop-trash-bin-tile .trash-tile-detail {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* 7. Bottom dock (99:300): 11px labels. JetBrains Mono advances 0.6em, so
+ *    "Blocker Alerts" needs ~91px; each app widens from 78px to 92px and the
+ *    dock sizes to its content (still centered by 01 via left:50%). */
+#screen-home [data-node-id="99:300"] {
+  width: auto !important;
+  height: 98px !important;
+  gap: 10px !important;
+  padding: 10px 14px !important;
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] {
+  width: 92px !important;
+  height: 78px !important;
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] [data-node-name="Label"] {
+  font-size: 11px !important;
+  line-height: 14px !important;
+  letter-spacing: -0.01em;
+}
+#screen-home [data-node-id="99:300"] .dock-dynamic-badge {
+  right: 15px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 10px;
+  line-height: 15px;
+}
+/* The 14px label now reaches the app's bottom edge, so the active dot moves
+ * into the dock's 10px bottom padding instead of overlapping the label. */
+#screen-home [data-node-id="99:300"] .dock-active-dot {
+  bottom: -7px;
+}
+/* Short viewports: 05-drag-and-viewport.js lifts the terminal's default spot
+ * (--term-dock-lift, 0px on tall viewports) so the wider dock never covers it. */
+#screen-home [data-node-id="99:235"] {
+  top: calc(-1 * var(--term-dock-lift, 0px));
+}
+#screen-home [data-node-id="99:337"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px;
+}
+#screen-home [data-node-id="99:338"] {
+  font-size: 10px !important;
+  line-height: 12px !important;
+}
+
+/* ============================================================================
+ * 8. File & App Hover Magnification + macOS-Style Neighbor Wave
+ *    - Desktop files & folders (#screen-home .f-desktop-item): animate child
+ *      App icon & App label so dragged inline transform (translate3d) and
+ *      hit-target bounds stay 100% stable without edge-flicker.
+ *    - Bottom Dock apps (#screen-home [data-node-id="99:300"] [data-node-name="Dock app"])
+ *    - Popup file chips, wizard pills, GUIDE cards & interactive rows
+ * ============================================================================ */
+
+/* 8A. Desktop Files & Folders (Blue Row 1, Yellow Row 2, Trash Bin, Guide, Custom) */
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > [data-node-name="App icon"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > [data-node-name="App label"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .trash-tile-title,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .trash-tile-detail,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .custom-item-pill-badge,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .custom-item-format-badge {
+  transition:
+    transform 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.44s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, filter;
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > [data-node-name="App icon"] {
+  transform-origin: center bottom;
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > [data-node-name="App label"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .trash-tile-title,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) > .trash-tile-detail {
+  transform-origin: center top;
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) [data-node-name="Folder shape · tab"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) [data-node-name="Folder shape · lip"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging) [data-node-name="App indicator"] {
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), filter 0.42s ease;
+}
+
+/* Direct Hovered Desktop Tile (~1.22x icon scale + upward float + folder tab peek) */
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) {
+  z-index: 95 !important;
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > [data-node-name="App icon"] {
+  transform: translateY(-9px) scale(1.22);
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) [data-node-name="Folder shape · tab"] {
+  transform: translateY(-2px) scaleX(1.05);
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) [data-node-name="Folder shape · lip"] {
+  transform: translateY(-1.5px) scaleY(1.2);
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) [data-node-name="App indicator"] {
+  transform: scaleX(1.38);
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > [data-node-name="App label"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > .trash-tile-title,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > .trash-tile-detail {
+  transform: translateY(-2.5px) scale(1.06);
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > .custom-item-pill-badge,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(:hover, .is-hover-target) > .custom-item-format-badge {
+  transform: translateY(-10px) scale(1.1);
+}
+
+/* Category-Colored Glow Halos for Hovered Desktop Files & Folders */
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(
+  [data-open-popup="136:341"], [data-open-popup="145:1122"], [data-custom-desktop-item="file"]
+):is(:hover, .is-hover-target) {
+  filter: brightness(1.13) drop-shadow(0 14px 26px rgba(56, 189, 248, 0.44)) drop-shadow(0 0 12px rgba(67, 217, 230, 0.34));
+}
+
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging):is(
+  [data-open-popup="136:468"], [data-open-popup="136:579"], [data-open-popup="136:417"], [data-open-popup="136:521"], [data-custom-desktop-item="workflow"]
+):is(:hover, .is-hover-target) {
+  filter: brightness(1.13) drop-shadow(0 14px 26px rgba(245, 158, 11, 0.48)) drop-shadow(0 0 12px rgba(251, 191, 36, 0.36));
+}
+
+#screen-home:not(.is-unlocking-enter) #desktop-trash-bin:not(.is-dragging):is(:hover, .is-hover-target) {
+  filter: brightness(1.13) drop-shadow(0 14px 26px rgba(244, 63, 94, 0.4)) drop-shadow(0 0 10px rgba(148, 163, 184, 0.28));
+}
+
+#screen-home:not(.is-unlocking-enter) #desktop-welcome-guide:not(.is-dragging):is(:hover, .is-hover-target) {
+  filter: brightness(1.13) drop-shadow(0 14px 26px rgba(99, 102, 241, 0.46)) drop-shadow(0 0 12px rgba(67, 217, 230, 0.34));
+}
+
+/* Tier-1 Desktop Neighbor Wave (.is-hover-neighbor-1) */
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 {
+  z-index: 75;
+  filter: brightness(1.06) drop-shadow(0 8px 18px rgba(56, 189, 248, 0.2));
+}
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > [data-node-name="App icon"] {
+  transform: translateY(-4.5px) scale(1.1);
+}
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > [data-node-name="App label"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > .trash-tile-title,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > .trash-tile-detail {
+  transform: translateY(-1.5px) scale(1.03);
+}
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > .custom-item-pill-badge,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-1 > .custom-item-format-badge {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* Tier-2 Desktop Neighbor Wave (.is-hover-neighbor-2) */
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-2 {
+  z-index: 65;
+  filter: brightness(1.03);
+}
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-2 > [data-node-name="App icon"] {
+  transform: translateY(-2px) scale(1.045);
+}
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-2 > [data-node-name="App label"],
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-2 > .trash-tile-title,
+#screen-home:not(.is-unlocking-enter) .f-desktop-item:not(.is-dragging).is-hover-neighbor-2 > .trash-tile-detail {
+  transform: translateY(-0.5px) scale(1.015);
+}
+
+/* 8B. Bottom Dock Apps (macOS Dock Magnification + Neighbor Wave) */
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] > [data-node-name="Dock icon"],
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] > [data-node-name="Label"],
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] .dock-active-dot,
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] .dock-dynamic-badge,
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] [data-node-id="99:337"] {
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, filter;
+}
+
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] > [data-node-name="Dock icon"] {
+  transform-origin: center bottom;
+}
+
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] > [data-node-name="Label"] {
+  transform-origin: center top;
+}
+
+/* Direct Hovered Dock App (~1.24x scale + upward lift + category glow) */
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(:hover, .is-hover-target) {
+  z-index: 30 !important;
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  transform: translateY(-11px) scale(1.24);
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(:hover, .is-hover-target) > [data-node-name="Label"] {
+  transform: translateY(-2px) scale(1.07);
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(:hover, .is-hover-target) .dock-active-dot {
+  transform: translateX(-50%) scale(1.35);
+}
+
+#screen-home [data-node-id="99:301"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  filter: brightness(1.1) drop-shadow(0 12px 22px rgba(20, 184, 166, 0.48));
+}
+#screen-home [data-node-id="99:307"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  filter: brightness(1.1) drop-shadow(0 12px 22px rgba(245, 158, 11, 0.5));
+}
+#screen-home [data-node-id="99:314"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  filter: brightness(1.12) drop-shadow(0 12px 22px rgba(244, 63, 94, 0.46));
+}
+#screen-home [data-node-id="99:320"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  filter: brightness(1.1) drop-shadow(0 12px 22px rgba(59, 130, 246, 0.5));
+}
+#screen-home [data-node-id="99:326"]:is(:hover, .is-hover-target) > [data-node-name="Dock icon"] {
+  filter: brightness(1.1) drop-shadow(0 12px 22px rgba(16, 185, 129, 0.48));
+}
+
+/* Tier-1 Dock Neighbor Wave (±1 adjacent dock app via JS class or CSS :has() sibling) */
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(
+  .is-hover-neighbor-1,
+  :has(+ [data-node-name="Dock app"]:hover),
+  [data-node-name="Dock app"]:hover + [data-node-name="Dock app"]
+) {
+  z-index: 20;
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(
+  .is-hover-neighbor-1,
+  :has(+ [data-node-name="Dock app"]:hover),
+  [data-node-name="Dock app"]:hover + [data-node-name="Dock app"]
+) > [data-node-name="Dock icon"] {
+  transform: translateY(-5.5px) scale(1.12);
+  filter: brightness(1.05) drop-shadow(0 8px 16px rgba(15, 23, 42, 0.24));
+}
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(
+  .is-hover-neighbor-1,
+  :has(+ [data-node-name="Dock app"]:hover),
+  [data-node-name="Dock app"]:hover + [data-node-name="Dock app"]
+) > [data-node-name="Label"] {
+  transform: translateY(-1px) scale(1.035);
+}
+
+/* Tier-2 Dock Neighbor Wave (±2 dock app via JS class or CSS :has() sibling) */
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"]:is(
+  .is-hover-neighbor-2,
+  :has(+ [data-node-name="Dock app"] + [data-node-name="Dock app"]:hover),
+  [data-node-name="Dock app"]:hover + [data-node-name="Dock app"] + [data-node-name="Dock app"]
+) > [data-node-name="Dock icon"] {
+  transform: translateY(-2.5px) scale(1.05);
+}
+
+/* 8C. Popup File Chips, Workflow Type Cards, Dock Summary Cards & Neighbor Ripple */
+.dock-wf-banner-file-chip,
+.dock-wf-banner-pill,
+.dock-wf-banner-action-btn,
+.trash-quick-chip,
+.wf-custom-file-pill,
+.murph-wf-type-item,
+.murph-dock-app,
+.murph-dock-app-icon,
+.murph-wf-type-icon,
+[data-node-id="154:104"],
+[data-node-id="154:108"],
+[data-node-id="154:112"],
+[data-node-id="154:116"],
+[data-node-id="154:120"] {
+  transition:
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.42s ease,
+    border-color 0.42s ease,
+    background-color 0.42s ease !important;
+}
+
+:is(
+  .dock-wf-banner-file-chip,
+  .trash-quick-chip,
+  .wf-custom-file-pill,
+  [data-node-id="154:104"],
+  [data-node-id="154:108"],
+  [data-node-id="154:112"],
+  [data-node-id="154:116"],
+  [data-node-id="154:120"]
+):hover {
+  transform: translateY(-3px) scale(1.09) !important;
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.26) !important;
+  z-index: 12;
+}
+
+.murph-wf-type-item:hover,
+.murph-dock-app:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.18) !important;
+}
+
+.murph-wf-type-item:hover .murph-wf-type-icon,
+.murph-dock-app:hover .murph-dock-app-icon {
+  transform: translateY(-2px) scale(1.16);
+}
+
+.is-hover-neighbor-1:not(.f-desktop-item):not([data-node-name="Dock app"]) {
+  transform: translateY(-1.5px) scale(1.01) !important;
+}
+:is(
+  .dock-wf-banner-file-chip,
+  .trash-quick-chip,
+  .wf-custom-file-pill,
+  [data-node-id="183:34"], [data-node-id="183:37"], [data-node-id="183:40"],
+  [data-node-id="183:64"], [data-node-id="183:67"], [data-node-id="183:91"],
+  [data-node-id="183:94"], [data-node-id="183:118"],
+  [data-node-id="155:1233"], [data-node-id="155:1236"], [data-node-id="155:1239"],
+  [data-node-id="154:104"], [data-node-id="154:108"], [data-node-id="154:112"], [data-node-id="154:116"], [data-node-id="154:120"]
+).is-hover-neighbor-1 {
+  transform: translateY(-1.5px) scale(1.045) !important;
+}
+

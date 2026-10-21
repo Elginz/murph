@@ -1,0 +1,440 @@
+/* ============================================================================
+ * 03c-dock-workflow-sync.css
+ * Dynamic Bottom Dock (99:300) & Dock Popup (My Agent, Scrub, Hard Stops,
+ * Policy & Rates, Deliverables) active/empty states & context banners.
+ * Uses flat obsidian/slate surfaces (#090D16, #0D1526, #0F172A, #13233F),
+ * Manrope / Poppins typography, zero gradients, and solid architectural borders.
+ * ============================================================================ */
+
+/* Bottom Dock button states */
+[data-node-id="99:301"],
+[data-node-id="99:307"],
+[data-node-id="99:314"],
+[data-node-id="99:320"],
+[data-node-id="99:326"] {
+  transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1), transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), filter 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dock-app-empty {
+  opacity: 0.45;
+  filter: saturate(0.35);
+}
+
+.dock-app-empty:hover {
+  opacity: 0.92;
+  filter: saturate(0.88);
+}
+
+.dock-app-active {
+  opacity: 1;
+  filter: none;
+}
+
+/* Active dot indicator under populated Dock icons */
+.dock-active-dot {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #10B981;
+  border: 1px solid #090D16;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Dynamic count badge on populated Dock icons (other than Hard Stops 99:337) */
+.dock-dynamic-badge {
+  position: absolute;
+  top: -1px;
+  right: 8px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #1E293B;
+  color: #38BDF8;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: center;
+  border: 1.5px solid #090D16;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Force-hide seed demo cards or children when a Dock popup is empty or scoped to a custom account */
+.dock-seed-hidden,
+[id^="popup-"] .dock-seed-hidden,
+[id^="popup-"] .dock-popup-is-empty > *:not(.dock-empty-state-panel),
+[id^="popup-"] .dock-popup-is-empty > [data-node-id]:not(.dock-empty-state-panel),
+[id^="popup-"] .dock-popup-is-empty .workload-topology-container {
+  display: none !important;
+}
+
+/* Active Workflow & File Context Banner inside populated Dock popups */
+.dock-workflow-context-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  background: #0B1120;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  font-family: "Manrope", sans-serif;
+}
+
+.dock-wf-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dock-wf-banner-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #CBD5E1;
+  letter-spacing: 0.01em;
+}
+
+.dock-wf-banner-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #0F172A;
+  border: 1px solid #334155;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.dock-wf-banner-files {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dock-wf-banner-file-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #0F172A;
+  border: 1px solid #334155;
+  color: #CBD5E1;
+  font-family: "Manrope", sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.26s ease, border-color 0.26s ease;
+}
+
+.dock-wf-banner-file-chip:hover {
+  background: #13233F;
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+.dock-wf-banner-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: #13233F;
+  color: #E0F2FE;
+  border: 1px solid #334155;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dock-wf-banner-action-btn:hover {
+  background: #1E3A5F;
+  color: #F8FAFC;
+}
+
+/* Custom Workflow Cards inside populated Dock popups */
+.dock-custom-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.dock-custom-wf-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #0B1120;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+}
+
+.dock-custom-wf-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dock-custom-wf-title {
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+.dock-custom-wf-meta {
+  font-family: "Manrope", sans-serif;
+  font-size: 11.5px;
+  color: #94A3B8;
+}
+
+/* Empty State Panel when a Dock category has 0 active workflows on user's desktop */
+.dock-empty-state-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 20px;
+  margin: 4px 0;
+  background: #0B1120;
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  font-family: "Manrope", sans-serif;
+}
+
+.dock-empty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #0F172A;
+  border: 1px solid #334155;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dock-empty-title {
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #F8FAFC;
+  margin: 0;
+}
+
+.dock-empty-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #94A3B8;
+  margin: 0;
+  max-width: 720px;
+}
+
+.dock-empty-files-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: #090D16;
+  border: 1px solid #1E293B;
+  border-radius: 5px;
+}
+
+.dock-empty-files-label {
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.dock-empty-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dock-empty-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #1E293B;
+  border: 1px solid #38BDF8;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #F8FAFC;
+  cursor: pointer;
+}
+
+.dock-empty-cta-primary:hover {
+  background: #13233F;
+  color: #FFFFFF;
+}
+
+.dock-empty-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #0F172A;
+  border: 1px solid #334155;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #CBD5E1;
+  cursor: pointer;
+}
+
+.dock-empty-cta-secondary:hover {
+  background: #13233F;
+  color: #F8FAFC;
+}
+
+/* ============================================================================
+ * Header Light / Dark Mode Toggle Button (99:287 on Home, 102:3250 on Intro)
+ * Default is Light Mode (`body:not(.dock-theme-dark)` / `body.dock-theme-light`).
+ * ============================================================================ */
+.theme-mode-toggle-btn,
+[data-node-id="99:287"],
+[data-node-id="102:3250"] {
+  cursor: pointer !important;
+  user-select: none;
+  transition: background 0.34s ease, border-color 0.34s ease, transform 0.26s ease, box-shadow 0.34s ease;
+}
+
+.theme-mode-toggle-btn:hover,
+[data-node-id="99:287"]:hover,
+[data-node-id="102:3250"]:hover {
+  transform: translateY(-1px);
+}
+
+body:not(.dock-theme-dark) [data-node-id="99:287"],
+body:not(.dock-theme-dark) [data-node-id="102:3250"],
+[data-node-id="99:287"].is-light-mode,
+[data-node-id="102:3250"].is-light-mode {
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12) !important;
+}
+
+body:not(.dock-theme-dark) [data-node-id="99:288"],
+body:not(.dock-theme-dark) [data-node-id="102:3251"] {
+  background: #F59E0B !important;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.55) !important;
+}
+
+body:not(.dock-theme-dark) [data-node-id="99:289"],
+body:not(.dock-theme-dark) [data-node-id="102:3252"] {
+  color: #0F172A !important;
+}
+
+body.dock-theme-dark [data-node-id="99:287"],
+body.dock-theme-dark [data-node-id="102:3250"],
+[data-node-id="99:287"].is-dark-mode,
+[data-node-id="102:3250"].is-dark-mode {
+  background: #0F172A !important;
+  border: 1px solid #334155 !important;
+  box-shadow: none !important;
+}
+
+body.dock-theme-dark [data-node-id="99:288"],
+body.dock-theme-dark [data-node-id="102:3251"] {
+  background: #38BDF8 !important;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.55) !important;
+}
+
+body.dock-theme-dark [data-node-id="99:289"],
+body.dock-theme-dark [data-node-id="102:3252"] {
+  color: #E2E8F0 !important;
+}
+
+/* ============================================================================
+ * Light / Dark Mode Bottom Dock (99:300)
+ * Only the Dock bar itself changes between White (Light Mode) and Black/Dark
+ * (Dark Mode); the 5 Dock app logos keep their vibrant Figma fills in both.
+ * ============================================================================ */
+body:not(.dock-theme-dark) [data-node-id="99:300"] {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08) !important;
+}
+
+body.dock-theme-dark [data-node-id="99:300"] {
+  background: rgba(11, 15, 25, 0.94) !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Dock app labels & badges in Light Mode vs Dark Mode */
+body:not(.dock-theme-dark) [data-node-id="99:306"],
+body:not(.dock-theme-dark) [data-node-id="99:313"],
+body:not(.dock-theme-dark) [data-node-id="99:319"],
+body:not(.dock-theme-dark) [data-node-id="99:325"],
+body:not(.dock-theme-dark) [data-node-id="99:331"] {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+body.dock-theme-dark [data-node-id="99:306"],
+body.dock-theme-dark [data-node-id="99:313"],
+body.dock-theme-dark [data-node-id="99:319"],
+body.dock-theme-dark [data-node-id="99:325"],
+body.dock-theme-dark [data-node-id="99:331"] {
+  color: #CBD5E1 !important;
+  font-weight: 600 !important;
+}
+
+body:not(.dock-theme-dark) [data-node-id="99:300"] .dock-active-dot,
+body:not(.dock-theme-dark) [data-node-id="99:300"] .dock-dynamic-badge,
+body:not(.dock-theme-dark) [data-node-id="99:337"] {
+  border-color: #FFFFFF !important;
+}
+
+/* Hide legacy static Figma bottom/footer bars inside all 5 Bottom Dock app popups */
+#ticket-quick-tag-bar,
+[data-node-id="183:475"],
+[data-node-id="183:482"],
+[data-node-id="183:267"],
+[data-node-id="136:937"],
+[data-node-id="183:130"],
+[data-node-id="155:1326"] {
+  display: none !important;
+}

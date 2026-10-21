@@ -1,0 +1,363 @@
+/* ==========================================================================
+ * 03-terminal-trash-and-badges.css
+ * State-Driven Dynamic File/Folder Badges (with 15-Minute NEW Expiry),
+ * Interactive Terminal Chat Agent (#home-terminal-log), Desktop & Dock Trash
+ * Bin Icons, Drag-to-Trash Drop Highlights, and Trash Bin Window (#popup-trash-bin).
+ * ========================================================================== */
+
+/* State-Driven Dynamic File & Folder Badges */
+.dynamic-file-state-badge {
+  position: absolute;
+  top: -5px;
+  right: 8px;
+  z-index: 8;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  border: 1.5px solid #070B1C;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.55);
+  pointer-events: none;
+  transition: transform 0.30s ease, opacity 0.30s ease;
+}
+
+.dynamic-file-state-badge.amber {
+  color: #1E1102;
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.55);
+}
+
+.dynamic-file-state-badge.cyan {
+  color: #041019;
+  background: linear-gradient(135deg, #43D9E6 0%, #38BDF8 100%);
+  box-shadow: 0 4px 12px rgba(67, 217, 230, 0.5);
+}
+
+/* Interactive Terminal Chat Agent Scrollable Log & Quick Commands */
+#screen-home [data-node-id="99:251"] {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  justify-content: space-between !important;
+}
+
+.murph-terminal-log {
+  flex: 1 1 auto;
+  min-height: 76px;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 2px 4px 6px 2px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(67, 217, 230, 0.4) transparent;
+}
+
+.murph-term-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  line-height: 1.42;
+  color: #E2E8F0;
+  word-break: break-word;
+}
+
+.murph-term-time {
+  color: #64748B;
+  font-size: 9.5px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.murph-term-tag {
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: rgba(67, 217, 230, 0.14);
+  color: #43D9E6;
+  border: 1px solid rgba(67, 217, 230, 0.3);
+}
+
+.murph-term-tag.user {
+  background: rgba(166, 92, 255, 0.18);
+  color: #C084FC;
+  border-color: rgba(166, 92, 255, 0.38);
+}
+
+.murph-term-tag.ok {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.38);
+}
+
+.murph-term-tag.warn {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.38);
+}
+
+.murph-term-tag.sys {
+  background: rgba(148, 163, 184, 0.12);
+  color: #94A3B8;
+  border-color: rgba(148, 163, 184, 0.28);
+}
+
+.murph-term-text {
+  flex: 1;
+  color: #E2E8F0;
+  white-space: pre-wrap;
+}
+
+/* Personal Agent answer (one clean block) vs. muted `sources:` / trace lines */
+.murph-term-msg.kind-agent .murph-term-text {
+  color: #F8FAFC;
+}
+
+.murph-term-msg.kind-sys .murph-term-text {
+  color: #B6C2D4;
+}
+
+.murph-term-quick-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 2px 0 4px 0;
+  flex-shrink: 0;
+}
+
+.murph-term-chip {
+  appearance: none;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(67, 217, 230, 0.28);
+  color: #94A3B8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.murph-term-chip:hover {
+  color: #041019;
+  background: #43D9E6;
+  border-color: #43D9E6;
+}
+
+
+/* Desktop & Dock Trash Bin App Icons + Drag-to-Throw Visual Feedback */
+.desktop-trash-bin-tile {
+  width: 128px;
+  min-height: 136px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 8px;
+  padding: 0;
+  border-radius: 14px;
+  position: relative;
+  z-index: 55;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.30s ease, filter 0.30s ease, box-shadow 0.30s ease;
+}
+
+.desktop-trash-bin-tile .trash-app-icon-box {
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.94) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border: 1.5px solid rgba(248, 113, 113, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.30s ease;
+}
+
+.desktop-trash-bin-tile:hover .trash-app-icon-box {
+  border-color: #F87171;
+  box-shadow: 0 12px 28px rgba(239, 68, 68, 0.28), 0 0 0 1px rgba(248, 113, 113, 0.35);
+}
+
+.desktop-trash-bin-tile .trash-tile-title {
+  width: 100%;
+  max-width: 124px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #F8FAFC;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.desktop-trash-bin-tile .trash-tile-detail {
+  width: 100%;
+  max-width: 124px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #94A3B8;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.trash-drop-target-hover {
+  transform: scale(1.08) !important;
+  filter: brightness(1.22) drop-shadow(0 0 24px rgba(239, 68, 68, 0.85)) !important;
+  outline: 2px dashed #F87171 !important;
+  outline-offset: 4px !important;
+}
+
+#screen-home .f-desktop-item.is-over-trash {
+  filter: brightness(1.1) drop-shadow(0 0 22px rgba(239, 68, 68, 0.9)) !important;
+  outline: 2px dashed #EF4444 !important;
+  border-radius: 12px;
+}
+
+#screen-home .f-desktop-item.is-over-trash::after {
+  content: "🗑️ Release to Dump in Trash";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: #220C10;
+  border: 1.5px solid #EF4444;
+  color: #FFFFFF;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow: 4px 4px 0px #020617;
+  pointer-events: none;
+  z-index: 900;
+}
+
+
+.murph-file-drag-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9500;
+  pointer-events: none;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 6px;
+  background: #090D16;
+  border: 2px solid #38BDF8;
+  color: #F8FAFC;
+  font-family: 'Manrope', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow: 8px 8px 0px #020617;
+  white-space: nowrap;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.murph-file-drag-ghost.is-trash-ready {
+  background: #220C10;
+  border-color: #EF4444;
+  color: #FFFFFF;
+  box-shadow: 8px 8px 0px #020617;
+}
+
+/* Format badge on desktop uploaded file tiles & inline Drive list */
+.custom-item-format-badge {
+  position: absolute; bottom: 2px; right: 2px; z-index: 6;
+  padding: 1.5px 5px; border-radius: 3px; background: #090D16;
+  border: 1.5px solid #38BDF8; color: #38BDF8;
+  font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 800;
+  letter-spacing: 0.04em; line-height: 1.1; pointer-events: none;
+}
+.doc-inline-ext-badge {
+  display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 3px;
+  background: #090D16; border: 1px solid #38BDF8; color: #38BDF8;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 800; vertical-align: middle;
+}
+
+/* Multi-Format File Viewer Styles inside #popup-136-341 */
+.doc-viewer-rendered { max-height: 330px !important; }
+.doc-format-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 8px 12px; margin-bottom: 12px; border-radius: 4px;
+  background: #0F172A; border: 1.5px solid #1E293B;
+}
+.doc-format-pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 3px;
+  background: #13233F; border: 1px solid #38BDF8; color: #38BDF8;
+  font-family: 'Manrope', 'Poppins', sans-serif; font-size: 11.5px; font-weight: 800; letter-spacing: 0.04em;
+}
+.doc-format-filename { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #E2E8F0; }
+.doc-csv-notes {
+  margin-bottom: 10px; padding: 8px 12px; background: #0D1526;
+  border-left: 3px solid #10B981; color: #CBD5E1; font-size: 13px;
+}
+.doc-csv-table-wrap { overflow-x: auto; border: 1.5px solid #1E293B; border-radius: 4px; }
+.doc-csv-table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 13px; }
+.doc-csv-table th {
+  background: #13233F; color: #38BDF8; font-weight: 800; text-align: left;
+  padding: 8px 10px; border-bottom: 2px solid #38BDF8; white-space: nowrap;
+}
+.doc-csv-table td { padding: 7px 10px; border-bottom: 1px solid #1E293B; color: #F1F5F9; }
+.doc-csv-table tr:nth-child(even) td { background: #0D1526; }
+.doc-csv-rownum { color: #64748B !important; font-family: 'JetBrains Mono', monospace; font-size: 11px; width: 32px; }
+.doc-json-keys { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.doc-json-key-chip {
+  padding: 3px 8px; border-radius: 3px; background: #0F172A; border: 1px solid #334155;
+  color: #94A3B8; font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+}
+.doc-json-key-chip strong { color: #38BDF8; }
+.doc-code-pre {
+  margin: 0; padding: 12px 14px; border-radius: 4px; background: #060A12;
+  border: 1.5px solid #1E293B; color: #E2E8F0; font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px; line-height: 1.55; overflow-x: auto;
+}
+.doc-plain-reader {
+  display: flex; flex-direction: column; gap: 2px; padding: 8px 10px;
+  border-radius: 4px; background: #060A12; border: 1.5px solid #1E293B;
+}
+.doc-plain-line {
+  display: grid; grid-template-columns: 32px 1fr; gap: 10px;
+  font-family: 'Manrope', sans-serif; font-size: 13.5px; line-height: 1.55;
+}
+.doc-plain-ln { color: #64748B; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; user-select: none; text-align: right; }
+.doc-plain-tx { color: #F1F5F9; white-space: pre-wrap; word-break: break-word; }
+.doc-media-preview-wrap {
+  display: flex; justify-content: center; align-items: center; padding: 12px;
+  background: #060A12; border: 1.5px solid #1E293B; border-radius: 4px; margin-bottom: 10px;
+}
+.doc-image-preview { max-width: 100%; max-height: 240px; object-fit: contain; border-radius: 3px; }
+.doc-pdf-embed { width: 100%; height: 260px; border: none; border-radius: 3px; }

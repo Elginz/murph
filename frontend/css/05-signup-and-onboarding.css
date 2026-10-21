@@ -1,0 +1,481 @@
+/* ============================================================================
+ * 05-signup-and-onboarding.css — Sign-Up pop-up card controls, isolated
+ * workspace empty-state card, and the first-run Onboarding Tour window.
+ * Follows the pop-up aesthetic: Manrope/Poppins, flat #090D16 / #0D1526
+ * surfaces, 2px #38BDF8 borders, hard offset shadows, zero gradients.
+ * ============================================================================ */
+
+/* ---- Sign-Up card (65:434) ------------------------------------------------ */
+#screen-signup [data-node-id="65:434"] {
+  background: #090D16 !important;
+  border: 2px solid #38BDF8 !important;
+  box-shadow: 10px 10px 0px #020617 !important;
+  border-radius: 6px !important;
+  padding: 26px 30px 22px !important;
+  height: auto !important;
+  min-height: 993px;
+  font-family: 'Manrope', 'Poppins', sans-serif !important;
+}
+
+#screen-signup [data-node-id="65:434"] .f-text {
+  font-family: 'Manrope', 'Poppins', sans-serif !important;
+}
+
+#screen-signup [data-node-id="65:434"] [data-node-name="Label"],
+#screen-signup [data-node-id="65:434"] [data-node-name="Required"] {
+  font-size: 11px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #93C5FD !important;
+}
+
+#screen-signup [data-node-id="65:434"] [data-node-name="Input"] {
+  background: #0D1526 !important;
+  border: 2px solid #1E3A5F !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: border-color 0.26s ease, box-shadow 0.26s ease;
+}
+
+#screen-signup [data-node-id="65:434"] [data-node-name="Input"]:focus-within {
+  border-color: #38BDF8 !important;
+  box-shadow: 4px 4px 0px #020617 !important;
+}
+
+#screen-signup [data-node-name="Input"].murph-signup-field-error {
+  border-color: #EF4444 !important;
+  box-shadow: 4px 4px 0px #450A0A !important;
+}
+
+#screen-signup [data-node-name="Input"].murph-signup-field-verified {
+  border-color: #10B981 !important;
+}
+
+.murph-signup-input,
+.murph-signup-select,
+.murph-signup-textarea {
+  font-family: 'Manrope', 'Poppins', sans-serif !important;
+  font-size: 14px !important;
+  color: #F8FAFC !important;
+  caret-color: #38BDF8;
+}
+
+.murph-signup-input.mono,
+.murph-signup-textarea {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.murph-signup-input.mono {
+  font-size: 11px !important;
+  width: 240px !important;
+}
+
+.murph-signup-textarea {
+  font-size: 12.5px !important;
+  line-height: 1.6 !important;
+}
+
+.murph-signup-input::placeholder,
+.murph-signup-textarea::placeholder {
+  color: #64748B;
+  opacity: 1;
+}
+
+.murph-signup-select option {
+  background: #0D1526;
+  color: #F8FAFC;
+}
+
+#screen-signup [data-node-id="66:48"],
+#screen-signup [data-node-id="66:59"] {
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+#screen-signup [data-node-id="66:48"]:hover,
+#screen-signup [data-node-id="66:59"]:hover,
+#screen-signup [data-node-id="66:48"].is-revealed,
+#screen-signup [data-node-id="66:59"].is-revealed {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+#screen-signup [data-node-id="66:48"].is-revealed path,
+#screen-signup [data-node-id="66:59"].is-revealed path {
+  fill: #38BDF8;
+}
+
+/* Live binding preview + status badge */
+#screen-signup [data-node-id="66:79"] {
+  background: #0D1526 !important;
+  border: 2px solid #10B981 !important;
+  border-radius: 4px !important;
+  height: auto !important;
+  min-height: 56px;
+  padding: 10px 16px !important;
+}
+
+#screen-signup [data-node-id="66:85"] {
+  font-size: 12.5px !important;
+  white-space: normal !important;
+  color: #F8FAFC !important;
+}
+
+#screen-signup [data-node-id="66:86"] {
+  border-radius: 3px !important;
+  border: 2px solid #10B981 !important;
+  background: #052E16 !important;
+}
+
+#screen-signup [data-node-id="66:86"][data-tone="busy"] {
+  border-color: #F59E0B !important;
+  background: #431407 !important;
+}
+
+#screen-signup [data-node-id="66:86"][data-tone="error"] {
+  border-color: #EF4444 !important;
+  background: #450A0A !important;
+}
+
+#screen-signup [data-node-id="66:88"] {
+  font-size: 10px !important;
+  color: #F8FAFC !important;
+}
+
+/* Optional starter file panels */
+#screen-signup [data-node-id="66:94"] {
+  background: #0D1526 !important;
+  border: 2px dashed #38BDF8 !important;
+  border-radius: 4px !important;
+}
+
+#screen-signup [data-node-id="66:98"] {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #F8FAFC !important;
+}
+
+#screen-signup [data-node-id="66:99"] {
+  font-size: 10px !important;
+  color: #93C5FD !important;
+}
+
+#screen-signup [data-node-id="66:100"] {
+  border-radius: 3px !important;
+  border: 2px solid #38BDF8 !important;
+  background: #0F172A !important;
+  cursor: pointer;
+}
+
+#screen-signup [data-node-id="66:102"] {
+  background: #0D1526 !important;
+  border: 2px solid #1E3A5F !important;
+  border-radius: 4px !important;
+}
+
+#screen-signup [data-node-id="66:103"] {
+  background: #0F172A !important;
+  border-bottom: 2px solid #1E3A5F !important;
+}
+
+#screen-signup [data-node-id="66:111"] {
+  display: flex !important;
+  overflow: hidden !important;
+}
+
+/* Primary CTA */
+#screen-signup [data-node-id="65:468"] {
+  background: #38BDF8 !important;
+  border: 2px solid #0EA5E9 !important;
+  border-radius: 4px !important;
+  box-shadow: 6px 6px 0px #020617 !important;
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+#screen-signup [data-node-id="65:468"]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #020617 !important;
+}
+
+#screen-signup [data-node-id="65:469"] {
+  color: #020617 !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+}
+
+#screen-signup [data-node-id="65:440"] {
+  background: #0D1526 !important;
+  border: 2px solid #1E3A5F !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+#screen-signup [data-node-id="65:440"]:hover {
+  border-color: #38BDF8 !important;
+}
+
+/* ---- Empty-state welcome card for isolated (self-registered) accounts ---- */
+.empty-account-state-card {
+  position: relative;
+  z-index: 40;
+  width: 420px;
+  margin: 6px 14px 6px 6px;
+  padding: 16px 18px 14px;
+  background: #090D16;
+  border: 2px solid #38BDF8;
+  box-shadow: 8px 8px 0px #020617;
+  border-radius: 6px;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  color: #F8FAFC;
+  align-self: flex-start;
+}
+
+.empty-state-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #38BDF8;
+  margin-bottom: 6px;
+}
+
+.empty-state-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.empty-state-copy {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #CBD5E1;
+  margin-bottom: 12px;
+}
+
+.empty-state-copy strong {
+  color: #F8FAFC;
+}
+
+.empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.empty-state-btn {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 12px;
+  background: #0D1526;
+  color: #F8FAFC;
+  border: 2px solid #1E3A5F;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+
+.empty-state-btn:hover {
+  border-color: #38BDF8;
+  transform: translate(-1px, -1px);
+}
+
+.empty-state-btn.primary {
+  background: #38BDF8;
+  color: #020617;
+  border-color: #0EA5E9;
+}
+
+/* ---- Onboarding tour window ------------------------------------------------ */
+.murph-onboarding-tour {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.72);
+}
+
+.murph-onboarding-tour.open {
+  display: flex;
+}
+
+.murph-onboarding-card {
+  width: min(680px, 92vw);
+  background: #090D16;
+  border: 2px solid #38BDF8;
+  box-shadow: 12px 12px 0px #020617;
+  border-radius: 6px;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  color: #F8FAFC;
+  overflow: hidden;
+}
+
+.murph-onboarding-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #0D1526;
+  border-bottom: 2px solid #1E3A5F;
+}
+
+.murph-onboarding-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #38BDF8;
+}
+
+.murph-onboarding-close {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #1E3A5F;
+  background: #090D16;
+  color: #F8FAFC;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.murph-onboarding-close:hover {
+  border-color: #EF4444;
+  color: #EF4444;
+}
+
+.murph-onboarding-body {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 18px;
+  padding: 24px 24px 10px;
+  min-height: 250px;
+}
+
+.murph-onboarding-icon {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0D1526;
+  border: 2px solid #1E3A5F;
+  border-radius: 4px;
+}
+
+/* Real desktop icons (02c-desktop-icon-templates.js) used inline in pop-ups */
+.murph-icon {
+  pointer-events: none;
+}
+
+.empty-state-kicker .murph-icon,
+.empty-state-copy .murph-icon,
+.empty-state-btn .murph-icon {
+  margin: -3px 5px 0 0;
+}
+
+.empty-state-btn {
+  display: inline-flex;
+  align-items: center;
+}
+
+.murph-onboarding-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.murph-onboarding-copy {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #CBD5E1;
+  margin: 0 0 10px;
+}
+
+.murph-onboarding-copy strong,
+.murph-onboarding-bullets strong {
+  color: #F8FAFC;
+}
+
+.murph-onboarding-copy code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  background: #0D1526;
+  border: 1px solid #1E3A5F;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.murph-onboarding-bullets {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #CBD5E1;
+}
+
+.murph-onboarding-bullets li::marker {
+  color: #38BDF8;
+}
+
+.murph-onboarding-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px 18px;
+  border-top: 2px solid #1E3A5F;
+  background: #0D1526;
+}
+
+.murph-onboarding-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.murph-onboarding-dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #38BDF8;
+  border-radius: 2px;
+  background: transparent;
+}
+
+.murph-onboarding-dot.active {
+  background: #38BDF8;
+}
+
+.murph-onboarding-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.murph-onboarding-btn {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 3px;
+  border: 2px solid #1E3A5F;
+  background: #090D16;
+  color: #F8FAFC;
+  cursor: pointer;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.murph-onboarding-btn:hover {
+  border-color: #38BDF8;
+  transform: translate(-1px, -1px);
+}
+
+.murph-onboarding-btn.primary {
+  background: #38BDF8;
+  color: #020617;
+  border-color: #0EA5E9;
+  box-shadow: 4px 4px 0px #020617;
+}

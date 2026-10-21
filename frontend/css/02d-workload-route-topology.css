@@ -1,0 +1,313 @@
+/* 02d-workload-route-topology.css — Real Person -> HUB-AG -> Team -> Recipient Topology */
+
+.workload-topology-container {
+  margin: 0 0 6px 0;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 14px 18px;
+  border-radius: 4px;
+  background: #0B111E;
+  border: 2px solid #1E293B;
+  border-left: 4px solid #38BDF8;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.workload-topology-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.workload-topology-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.workload-topology-title {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #38BDF8;
+  letter-spacing: 0.02em;
+}
+
+.workload-topology-scope-pill {
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 3px;
+  background: #131F36;
+  color: #E2E8F0;
+  border: 1.5px solid #334155;
+}
+
+.workload-topology-toggle-btn {
+  appearance: none;
+  background: #131F36;
+  border: 1.5px solid #38BDF8;
+  color: #F8FAFC;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.26s ease;
+}
+
+.workload-topology-toggle-btn:hover {
+  background: #38BDF8;
+  color: #050B14;
+}
+
+.workload-topology-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  overflow-x: auto;
+  padding-top: 4px;
+}
+
+.workload-topology-container.collapsed .workload-topology-panel,
+.workload-topology-panel.collapsed {
+  display: none !important;
+}
+
+.workload-route-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: #080E1A;
+  border: 1.5px solid #1E293B;
+}
+
+.workload-route-card.is-highlighted-route {
+  background: #0B1628;
+  border: 2px solid #38BDF8;
+}
+
+.workload-route-focus-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  background: #38BDF8;
+  color: #050B14;
+  letter-spacing: 0.03em;
+}
+
+.workload-route-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.workload-route-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.workload-route-ticket-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  font-weight: 800;
+  background: #131F36;
+  color: #38BDF8;
+  border: 1px solid #38BDF8;
+}
+
+.workload-route-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.workload-route-status-badge.status-settled {
+  background: #07221B;
+  color: #10B981;
+  border: 1px solid #10B981;
+}
+
+.workload-route-status-badge.status-pending {
+  background: #231908;
+  color: #F59E0B;
+  border: 1px solid #F59E0B;
+}
+
+.workload-route-status-badge.status-assist {
+  background: #220C10;
+  color: #EF4444;
+  border: 1px solid #EF4444;
+}
+
+.workload-route-status-badge.status-preview {
+  background: #0B192C;
+  color: #38BDF8;
+  border: 1px solid #38BDF8;
+}
+
+.workload-topology-svg {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  display: block;
+}
+
+@keyframes topoDashFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.topo-edge-inflight {
+  stroke-dasharray: 6 5;
+  animation: topoDashFlow 2.20s linear infinite;
+}
+
+.topo-node-interactive {
+  cursor: pointer;
+}
+
+.topo-node-interactive:hover .topo-node-box {
+  filter: brightness(1.18);
+  stroke-width: 2.6px;
+}
+
+/* Legend Bar */
+.workload-topology-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #080E1A;
+  border: 1px solid #1E293B;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 11px;
+  color: #CBD5E1;
+}
+
+.workload-topology-legend-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.workload-topology-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+}
+
+.topo-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.topo-legend-line {
+  width: 18px;
+  height: 0;
+  display: inline-block;
+}
+
+.topo-legend-line.solid {
+  border-top: 2.5px solid #10B981;
+}
+
+.topo-legend-line.dashed {
+  border-top: 2.5px dashed #F59E0B;
+}
+
+.topo-legend-chip {
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 9.5px;
+  font-weight: 800;
+  border: 1px solid currentColor;
+}
+
+/* Floating Tooltip for Topology Nodes */
+.workload-topo-tooltip {
+  position: fixed;
+  z-index: 99999;
+  pointer-events: none;
+  max-width: 340px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: #070C16;
+  border: 2px solid #38BDF8;
+  color: #F8FAFC;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 11.5px;
+  line-height: 1.45;
+  display: none;
+}
+
+.workload-topo-tooltip.visible {
+  display: block;
+}
+
+.workload-topo-tooltip-title {
+  font-weight: 800;
+  color: #38BDF8;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.workload-topo-tooltip-sub {
+  color: #CBD5E1;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.workload-topo-tooltip-files {
+  color: #FBBF24;
+  font-size: 10.5px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.workload-topo-tooltip-hint {
+  color: #10B981;
+  font-size: 10.5px;
+  font-weight: 800;
+  margin-top: 5px;
+}

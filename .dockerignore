@@ -1,0 +1,17 @@
+# Kept out of the container image (see Dockerfile). Never ship databases or secrets.
+.git
+.gitignore
+.gcloudignore
+.dockerignore
+**/__pycache__
+**/*.py[cod]
+*.db
+*.db-*
+data/
+.env
+murph.zip
+BUILD
+tests/
+deploy/
+hackathon_prototype_build_*/
+*.metadata.json

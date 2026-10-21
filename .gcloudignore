@@ -1,0 +1,15 @@
+# Not uploaded by `gcloud run deploy --source .` (the Cloud Build context).
+# Dockerfile and .dockerignore must stay uploaded.
+.gcloudignore
+.git
+.gitignore
+**/__pycache__/
+*.py[cod]
+*.db
+*.db-*
+data/
+.env
+murph.zip
+BUILD
+hackathon_prototype_build_*/
+*.metadata.json

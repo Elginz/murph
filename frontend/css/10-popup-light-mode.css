@@ -1,0 +1,364 @@
+/* ============================================================================
+ * 10-popup-light-mode.css
+ * Unified Light Mode (`body:not(.dock-theme-dark)`) and Dark Mode
+ * (`body.dock-theme-dark`) base theme & semantic color tokens for all popups
+ * (`.os-floating-window` and `.os-popup-wrapper`).
+ *
+ * - Light Mode (default): Crisp white / slate surfaces (#FFFFFF, #F8FAFC,
+ *   #F1F5F9), #CBD5E1 borders, high-contrast dark slate body text (#0F172A,
+ *   #1E293B, #334155), and vibrant semantic accents (Sky, Indigo, Emerald,
+ *   Amber, Rose).
+ * - Dark Mode (`body.dock-theme-dark`): Deep obsidian / slate surfaces
+ *   (#090D16, #0F172A, #111A2E, #1E293B), #1E293B / #334155 borders,
+ *   high-contrast white / light slate body text (#F8FAFC, #E2E8F0, #CBD5E1),
+ *   and luminous semantic accents.
+ * ============================================================================ */
+
+/* 1. Token Overrides inside Popups — Light Mode */
+body:not(.dock-theme-dark) .os-floating-window,
+body:not(.dock-theme-dark) .os-popup-wrapper {
+  /* Card & surface fills */
+  --_fill-4J7WBC: #FFFFFF; --_fill-5TP2ZX: #FFFFFF; --_fill-UMDTWQ: #FFFFFF;
+  --_fill-UUVE7M: #FFFFFF; --_fill-W3KDWI: #FFFFFF; --_fill-W6MLXG: #FFFFFF;
+  --_fill-ZZUWVC: #FFFFFF; --_fill-43C24P: #F1F5F9; --_fill-4DS6E3: #F8FAFC;
+  --_fill-4FFVVZ: #F8FAFC; --_fill-5DXVM6: #F8FAFC; --_fill-5JD4IM: #F8FAFC;
+  --_fill-7NDOGK: #F8FAFC; --_fill-A64E7O: #F1F5F9; --_fill-BTNIVS: #F8FAFC;
+  --_fill-BWFUVK: #F1F5F9; --_fill-E7JZKW: #F8FAFC; --_fill-G5U7SK: #F8FAFC;
+  --_fill-GADKZT: #F8FAFC; --_fill-ICVXC6: #F1F5F9; --_fill-IQU3OR: #F8FAFC;
+  --_fill-J556B2: #F8FAFC; --_fill-JA4EN5: #F8FAFC; --_fill-JAT4UW: #F8FAFC;
+  --_fill-JE4XS6: #F8FAFC; --_fill-KENIPN: #F1F5F9; --_fill-LIQZMW: #F8FAFC;
+  --_fill-MW464D: #F1F5F9; --_fill-MXIMVO: #F8FAFC; --_fill-N5THMI: #F1F5F9;
+  --_fill-NUQJS7: #F8FAFC; --_fill-O6BR44: #E2E8F0; --_fill-OFOBZ5: #F1F5F9;
+  --_fill-PAJFYN: #F8FAFC; --_fill-PB3WO2: #F8FAFC; --_fill-PB747Q: #F8FAFC;
+  --_fill-Q3LVBQ: #F8FAFC; --_fill-Q7YXTF: #F8FAFC; --_fill-R4JSF4: #F8FAFC;
+  --_fill-T62HU7: #F8FAFC; --_fill-TMA2LN: #F1F5F9; --_fill-TMTVEG: #F8FAFC;
+  --_fill-VH5GXD: #F1F5F9; --_fill-VK4XTL: #F1F5F9; --_fill-WQK55Y: #F1F5F9;
+  --_fill-X2J4CR: #E2E8F0; --_fill-Z6L2YB: #F8FAFC;
+
+  /* Borders */
+  --_fill-TM6AVM: #CBD5E1; --_fill-H27ZWM: #CBD5E1; --_fill-BASR23: #CBD5E1;
+  --_fill-DVOZCQ: #CBD5E1; --_fill-DZ3UZI: #CBD5E1; --_fill-BE6OV4: #94A3B8;
+
+  /* High-contrast body & muted text tokens in Light Mode */
+  --_fill-7JJJA6: #0F172A; --_fill-MWFLF6: #0F172A; --_fill-RKRDCO: #0F172A;
+  --_fill-RT5JAX: #0F172A; --_fill-XDSNUJ: #1E293B; --_fill-OU7AW6: #1E293B;
+  --_fill-HNLTRA: #1E293B; --_fill-SXAZ2K: #1E293B; --_fill-4YNO2M: #334155;
+  --_fill-52RUF3: #334155; --_fill-KUKUHK: #334155; --_fill-4LA7JW: #334155;
+  --_fill-74QPNR: #334155; --_fill-7S5LPA: #334155; --_fill-I6E4SQ: #334155;
+  --_fill-XOQ7JW: #334155;
+
+  /* Semantic accent tokens in Light Mode: 700-level shades of each hue so
+   * token-colored labels stay >= 4.5:1 on white and pale slate cards. */
+  --_fill-6SC4GO: #0369A1; --_fill-XA5C6L: #0369A1; --_fill-IQU5PF: #0369A1;
+  --_fill-CCDDJJ: #0369A1; --_fill-OEWCQP: #0369A1; --_fill-FCZWS6: #2563EB;
+  --_fill-JHIHEM: #4F46E5; --_fill-KHJYCD: #4F46E5; --_fill-RQY2UJ: #6D28D9;
+  --_fill-OYFXIX: #6D28D9; --_fill-5L6BME: #4338CA;
+  --_fill-BYQPVS: #047857; --_fill-YN4LS7: #047857;
+  --_fill-MTR33S: #B45309; --_fill-QGZMVR: #B45309; --_fill-AQODJ5: #B45309;
+  --_fill-FF2DJZ: #B45309; --_fill-FWYXM6: #B45309; --_fill-IQDFRM: #B45309;
+  --_fill-V4W3DY: #B45309; --_fill-Y6N5JS: #B45309;
+  --_fill-LUXNDI: #B91C1C; --_fill-3NXNM3: #BE123C; --_fill-L3DITX: #BE123C;
+}
+
+/* 2. Token Overrides inside Popups — Dark Mode */
+body.dock-theme-dark .os-floating-window,
+body.dock-theme-dark .os-popup-wrapper {
+  /* High-contrast body & muted text tokens in Dark Mode */
+  --_fill-7JJJA6: #F8FAFC; --_fill-MWFLF6: #F8FAFC; --_fill-RKRDCO: #F8FAFC;
+  --_fill-RT5JAX: #F8FAFC; --_fill-XDSNUJ: #E2E8F0; --_fill-OU7AW6: #E2E8F0;
+  --_fill-HNLTRA: #E2E8F0; --_fill-SXAZ2K: #E2E8F0; --_fill-4YNO2M: #CBD5E1;
+  --_fill-52RUF3: #CBD5E1; --_fill-KUKUHK: #CBD5E1; --_fill-4LA7JW: #CBD5E1;
+  --_fill-74QPNR: #CBD5E1; --_fill-7S5LPA: #CBD5E1; --_fill-I6E4SQ: #CBD5E1;
+  --_fill-XOQ7JW: #CBD5E1;
+
+  /* Luminous semantic accent tokens in Dark Mode */
+  --_fill-6SC4GO: #38BDF8; --_fill-XA5C6L: #38BDF8; --_fill-IQU5PF: #7DD3FC;
+  --_fill-CCDDJJ: #38BDF8; --_fill-OEWCQP: #38BDF8; --_fill-FCZWS6: #60A5FA;
+  --_fill-JHIHEM: #818CF8; --_fill-KHJYCD: #A5B4FC; --_fill-RQY2UJ: #C4B5FD;
+  --_fill-OYFXIX: #A78BFA; --_fill-5L6BME: #C7D2FE;
+  --_fill-BYQPVS: #34D399; --_fill-YN4LS7: #6EE7B7;
+  --_fill-MTR33S: #FBBF24; --_fill-QGZMVR: #FCD34D; --_fill-AQODJ5: #F59E0B;
+  --_fill-FF2DJZ: #FDE68A; --_fill-FWYXM6: #FCD34D; --_fill-IQDFRM: #FBBF24;
+  --_fill-V4W3DY: #FDE68A; --_fill-Y6N5JS: #FCD34D;
+  --_fill-LUXNDI: #FB7185; --_fill-3NXNM3: #FDA4AF; --_fill-L3DITX: #FECDD3;
+}
+
+/* Preserve macOS traffic-light window control colors in both modes */
+.os-floating-window [data-node-name="Close"], .os-popup-wrapper [data-node-name="Close"] { background: #EF4444 !important; }
+.os-floating-window [data-node-name="Minimize"], .os-popup-wrapper [data-node-name="Minimize"] { background: #F59E0B !important; }
+.os-floating-window [data-node-name="Zoom"], .os-popup-wrapper [data-node-name="Zoom"] { background: #10B981 !important; }
+
+/* 3. Popup Window Shells, Titlebars & Content Areas — Light Mode */
+body:not(.dock-theme-dark) .os-floating-window > .f-frame,
+body:not(.dock-theme-dark) .os-popup-wrapper > .f-frame,
+body:not(.dock-theme-dark) .trash-bin-floating-window,
+body:not(.dock-theme-dark) .welcome-guide-floating-window {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 22px 52px rgba(15, 23, 42, 0.18), 0 4px 14px rgba(15, 23, 42, 0.08) !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Window titlebar"],
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="macOS dark titlebar"],
+body:not(.dock-theme-dark) .os-floating-window .trash-win-titlebar,
+body:not(.dock-theme-dark) .os-floating-window .murph-guide-titlebar,
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Window titlebar"] {
+  background: #F8FAFC !important;
+  border-bottom: 1px solid #CBD5E1 !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Window content"],
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Window content"],
+body:not(.dock-theme-dark) .trash-win-body,
+body:not(.dock-theme-dark) .murph-guide-body {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Workspace badge"],
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Single workflow badge"],
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Workspace badge"] {
+  background: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 4. Base Inner Bars, Cards, Badges & Diff Boxes — Light Mode */
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Window content"] .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]),
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Window content"] .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]) {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Window content"] .f-frame .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]),
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Window content"] .f-frame .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]) {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Claim Fixes Diff Boxes (Removed − / Added +) — Light Mode */
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1264"],
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1289"],
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1314"],
+body:not(.dock-theme-dark) #popup-136-468 [data-node-id="171:38"],
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Removed claim"],
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Removed claim"] {
+  background: #FEF2F2 !important;
+  border: 1px solid #FCA5A5 !important;
+  border-left: 3.5px solid #E11D48 !important;
+  color: #881337 !important;
+}
+
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1267"],
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1292"],
+body:not(.dock-theme-dark) #popup-155-1214 [data-node-id="155:1317"],
+body:not(.dock-theme-dark) #popup-136-468 [data-node-id="171:41"],
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Added claim"],
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Added claim"] {
+  background: #ECFDF5 !important;
+  border: 1px solid #6EE7B7 !important;
+  border-left: 3.5px solid #059669 !important;
+  color: #064E3B !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window [data-node-name="Window content"] .f-interactive[style*="background"],
+body:not(.dock-theme-dark) .os-popup-wrapper [data-node-name="Window content"] .f-interactive[style*="background"] {
+  background: #F1F5F9 !important;
+  border: 1px solid #94A3B8 !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window .f-frame[style*="border-color"],
+body:not(.dock-theme-dark) .os-popup-wrapper .f-frame[style*="border-color"],
+body:not(.dock-theme-dark) :is(.doc-viewer-header, .drive-docs-top, .workload-route-card-head, .trash-win-footer, .doc-csv-table td) {
+  border-color: #CBD5E1 !important;
+}
+
+/* 5. Base Inner Bars, Cards, Badges & Buttons — Dark Mode */
+body.dock-theme-dark .os-floating-window > .f-frame,
+body.dock-theme-dark .os-popup-wrapper > .f-frame,
+body.dock-theme-dark .trash-bin-floating-window,
+body.dock-theme-dark .welcome-guide-floating-window,
+body.dock-theme-dark .os-floating-window [data-node-name="Window content"],
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Window content"],
+body.dock-theme-dark .trash-win-body,
+body.dock-theme-dark .murph-guide-body {
+  background: #090D16 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.dock-theme-dark .os-floating-window [data-node-name="Window titlebar"],
+body.dock-theme-dark .os-floating-window [data-node-name="macOS dark titlebar"],
+body.dock-theme-dark .os-floating-window .trash-win-titlebar,
+body.dock-theme-dark .os-floating-window .murph-guide-titlebar,
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Window titlebar"] {
+  background: #0F172A !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+body.dock-theme-dark .os-floating-window [data-node-name="Workspace badge"],
+body.dock-theme-dark .os-floating-window [data-node-name="Single workflow badge"],
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Workspace badge"] {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+}
+
+body.dock-theme-dark .os-floating-window [data-node-name="Window content"] .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]),
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Window content"] .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]) {
+  background: #111A2E !important;
+  border-color: #334155 !important;
+}
+
+body.dock-theme-dark .os-floating-window [data-node-name="Window content"] .f-frame .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]),
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Window content"] .f-frame .f-frame[style*="background"]:not([data-node-name="Ellipse"]):not([data-node-name$="light"]):not([data-node-name="Rectangle"]):not([data-node-name="Radio inner"]):not([data-node-name="Checkbox"]):not([data-node-name="Removed claim"]):not([data-node-name="Added claim"]) {
+  background: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+/* Claim Fixes Diff Boxes (Removed − / Added +) — Dark Mode */
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1264"],
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1289"],
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1314"],
+body.dock-theme-dark #popup-136-468 [data-node-id="171:38"],
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Removed claim"],
+body.dock-theme-dark .os-floating-window [data-node-name="Removed claim"] {
+  background: #240D14 !important;
+  border: 1px solid rgba(251, 113, 133, 0.45) !important;
+  border-left: 3.5px solid #FB7185 !important;
+  color: #FFE4E6 !important;
+}
+
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1267"],
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1292"],
+body.dock-theme-dark #popup-155-1214 [data-node-id="155:1317"],
+body.dock-theme-dark #popup-136-468 [data-node-id="171:41"],
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Added claim"],
+body.dock-theme-dark .os-floating-window [data-node-name="Added claim"] {
+  background: #07231C !important;
+  border: 1px solid rgba(52, 211, 153, 0.45) !important;
+  border-left: 3.5px solid #34D399 !important;
+  color: #D1FAE5 !important;
+}
+
+body.dock-theme-dark .os-floating-window [data-node-name="Window content"] .f-interactive[style*="background"],
+body.dock-theme-dark .os-popup-wrapper [data-node-name="Window content"] .f-interactive[style*="background"] {
+  background: #1E293B !important;
+  border: 1px solid #475569 !important;
+}
+
+/* 6. Crisp Body Copy with Semantic Accent Preservation in Light & Dark Modes */
+body:not(.dock-theme-dark) .os-floating-window .f-text:not([style*="--_fill-"]),
+body:not(.dock-theme-dark) .os-popup-wrapper .f-text:not([style*="--_fill-"]),
+body:not(.dock-theme-dark) .os-floating-window :is([data-node-name="Window title"], p, h1, h2, h3, h4, label, td, th, code, pre, blockquote, input, textarea, select),
+body:not(.dock-theme-dark) .os-popup-wrapper :is([data-node-name="Window title"], p, h1, h2, h3, h4, label, td, th, code, pre, blockquote, input, textarea, select) {
+  color: #0F172A !important;
+}
+
+body:not(.dock-theme-dark) .os-floating-window :is(.f-text[style*="color: #94A3B8"], .f-text[style*="color: rgb(148, 163, 184)"], .f-text[style*="color: #64748B"], .dock-wf-banner-muted, .doc-plain-ln, .doc-csv-rownum),
+body:not(.dock-theme-dark) .os-popup-wrapper :is(.f-text[style*="color: #94A3B8"], .f-text[style*="color: rgb(148, 163, 184)"], .f-text[style*="color: #64748B"], .dock-wf-banner-muted, .doc-plain-ln, .doc-csv-rownum) {
+  color: #475569 !important;
+}
+
+body.dock-theme-dark .os-floating-window .f-text:not([style*="--_fill-"]),
+body.dock-theme-dark .os-popup-wrapper .f-text:not([style*="--_fill-"]),
+body.dock-theme-dark .os-floating-window :is([data-node-name="Window title"], p, h1, h2, h3, h4, label, td, th, code, pre, blockquote, input, textarea, select),
+body.dock-theme-dark .os-popup-wrapper :is([data-node-name="Window title"], p, h1, h2, h3, h4, label, td, th, code, pre, blockquote, input, textarea, select) {
+  color: #F8FAFC !important;
+}
+
+body.dock-theme-dark .os-floating-window :is(.f-text[style*="color: #94A3B8"], .f-text[style*="color: rgb(148, 163, 184)"], .f-text[style*="color: #64748B"], .dock-wf-banner-muted, .doc-plain-ln, .doc-csv-rownum),
+body.dock-theme-dark .os-popup-wrapper :is(.f-text[style*="color: #94A3B8"], .f-text[style*="color: rgb(148, 163, 184)"], .f-text[style*="color: #64748B"], .dock-wf-banner-muted, .doc-plain-ln, .doc-csv-rownum) {
+  color: #CBD5E1 !important;
+}
+
+/* 7. Custom Injected Components (Document Viewer, Format Banner, Topology, Docs, Wizard, Trash, Guide) */
+body:not(.dock-theme-dark) :is(.doc-viewer-drawer, .doc-format-banner, .doc-csv-notes, .doc-csv-table-wrap, .doc-csv-table tr:nth-child(even) td, .doc-code-pre, .doc-plain-reader, .doc-plain-block, .doc-media-preview-wrap, .drive-docs-browser, .drive-doc-row:first-child, .dock-workflow-context-banner, .dock-custom-wf-card, .dock-empty-state-panel, .workload-topology-container, #wf-tag-user-section, .wf-user-select-dropdown, .wf-footer-user-picker-wrap, .wf-tag-custom-input, .ticket-quick-tag-bar, .wf-settlement-preview-bar, .settled-update-banner, .trash-dropzone-banner, .trash-empty-placeholder, .trash-item-row, .murph-guide-hero, .murph-guide-terminal-note, .murph-wf-type-item, .murph-dock-app, .murph-tour-menu-preview, .murph-tour-terminal, .murph-tour-terminal-bar) {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body:not(.dock-theme-dark) :is(.doc-viewer-rendered, .doc-viewer-textarea, .drive-doc-row, .dock-empty-files-box, .workload-route-card, .workload-topology-legend, .wf-footer-user-select, .wf-footer-user-select option, .wf-tag-pill, .ticket-tag-chip, .trash-quick-throw-chip, .murph-guide-close, .murph-dock-app-icon, .murph-guide-copy code) {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body:not(.dock-theme-dark) :is(.doc-csv-table th, .doc-viewer-tab-btn, .dock-empty-cta-secondary, .workload-topology-toggle-btn, .trash-btn) {
+  background: #F1F5F9 !important;
+  border-color: #94A3B8 !important;
+  color: #0F172A !important;
+}
+
+/* Semantic accents for custom pills, tabs & buttons — Light Mode */
+body:not(.dock-theme-dark) :is(.doc-format-pill, .doc-inline-ext-badge, .dock-wf-banner-file-chip, .workload-topology-scope-pill, .workload-route-ticket-badge, .trash-item-kind-pill) {
+  background: #E0F2FE !important;
+  border: 1px solid #7DD3FC !important;
+  color: #0369A1 !important;
+}
+body:not(.dock-theme-dark) :is(.doc-viewer-tab-btn.active, .drive-doc-btn, .dock-wf-banner-action-btn, .dock-empty-cta-primary, .wf-tag-pill.active, .ticket-tag-chip.active) {
+  background: linear-gradient(135deg, #0369A1, #1D4ED8) !important;
+  border-color: #0369A1 !important;
+  color: #FFFFFF !important;
+}
+body:not(.dock-theme-dark) :is(.dock-wf-banner-pill, .dock-empty-badge, .trash-item-kind-pill.workflow, .workload-route-focus-pill) {
+  background: #FEF3C7 !important;
+  border: 1px solid #FCD34D !important;
+  color: #B45309 !important;
+}
+body:not(.dock-theme-dark) :is(.workload-route-status-badge, .trash-btn.restore, .trash-win-status-pill) {
+  background: #ECFDF5 !important;
+  border: 1px solid #6EE7B7 !important;
+  color: #047857 !important;
+}
+body:not(.dock-theme-dark) :is(.doc-viewer-tab-btn.danger, .trash-btn.delete) {
+  background: #FEF2F2 !important;
+  border: 1px solid #FCA5A5 !important;
+  color: #BE123C !important;
+}
+
+/* Dark Mode custom components */
+body.dock-theme-dark :is(.doc-viewer-drawer, .doc-format-banner, .doc-csv-notes, .doc-csv-table-wrap, .doc-csv-table tr:nth-child(even) td, .doc-code-pre, .doc-plain-reader, .doc-plain-block, .doc-media-preview-wrap, .drive-docs-browser, .drive-doc-row:first-child, .dock-workflow-context-banner, .dock-custom-wf-card, .dock-empty-state-panel, .workload-topology-container, #wf-tag-user-section, .wf-user-select-dropdown, .wf-footer-user-picker-wrap, .wf-tag-custom-input, .ticket-quick-tag-bar, .wf-settlement-preview-bar, .settled-update-banner, .trash-dropzone-banner, .trash-empty-placeholder, .trash-item-row, .murph-guide-hero, .murph-guide-terminal-note, .murph-wf-type-item, .murph-dock-app, .murph-tour-menu-preview, .murph-tour-terminal, .murph-tour-terminal-bar) {
+  background: #111A2E !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.dock-theme-dark :is(.doc-viewer-rendered, .doc-viewer-textarea, .drive-doc-row, .dock-empty-files-box, .workload-route-card, .workload-topology-legend, .wf-footer-user-select, .wf-footer-user-select option, .wf-tag-pill, .ticket-tag-chip, .trash-quick-throw-chip, .murph-guide-close, .murph-dock-app-icon, .murph-guide-copy code) {
+  background: #0F172A !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.dock-theme-dark :is(.doc-csv-table th, .doc-viewer-tab-btn, .dock-empty-cta-secondary, .workload-topology-toggle-btn, .trash-btn) {
+  background: #1E293B !important;
+  border-color: #475569 !important;
+  color: #F8FAFC !important;
+}
+
+body.dock-theme-dark :is(.doc-format-pill, .doc-inline-ext-badge, .dock-wf-banner-file-chip, .workload-topology-scope-pill, .workload-route-ticket-badge, .trash-item-kind-pill) {
+  background: #0C2D48 !important;
+  border: 1px solid #0284C7 !important;
+  color: #7DD3FC !important;
+}
+body.dock-theme-dark :is(.doc-viewer-tab-btn.active, .drive-doc-btn, .dock-wf-banner-action-btn, .dock-empty-cta-primary, .wf-tag-pill.active, .ticket-tag-chip.active) {
+  background: linear-gradient(135deg, #0284C7, #2563EB) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+}
+body.dock-theme-dark :is(.dock-wf-banner-pill, .dock-empty-badge, .trash-item-kind-pill.workflow, .workload-route-focus-pill) {
+  background: #2E1F08 !important;
+  border: 1px solid #D97706 !important;
+  color: #FCD34D !important;
+}
+body.dock-theme-dark :is(.workload-route-status-badge, .trash-btn.restore, .trash-win-status-pill) {
+  background: #062E22 !important;
+  border: 1px solid #059669 !important;
+  color: #6EE7B7 !important;
+}
+body.dock-theme-dark :is(.doc-viewer-tab-btn.danger, .trash-btn.delete) {
+  background: #31101B !important;
+  border: 1px solid #E11D48 !important;
+  color: #FDA4AF !important;
+}

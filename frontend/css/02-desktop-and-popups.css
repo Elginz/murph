@@ -1,0 +1,483 @@
+/* ==========================================================================
+ * 02-desktop-and-popups.css
+ * Dynamic Desktop Rows (Blue Files & Yellow Workflows), Draggable Icons,
+ * Simultaneous Multi-Window Floating Popups (.os-floating-window), Overlay
+ * Modals, Full Figma Board View, HUD Controls, Document Viewer/Editor Drawer,
+ * Google Drive Browser, and Workload-Only Topology Diagrams.
+ * ========================================================================== */
+
+/* Dynamic Desktop Rows (Row 1 Blue Files 99:107 & Row 2 Yellow Workflows 99:176) */
+#screen-home [data-node-id="99:106"] {
+  height: auto !important;
+  min-height: 294px;
+}
+
+#screen-home [data-node-id="99:107"],
+#screen-home [data-node-id="99:176"] {
+  flex-wrap: wrap !important;
+  height: auto !important;
+  min-height: 136px;
+  row-gap: 12px !important;
+}
+
+#screen-home .f-custom-desktop-item {
+  animation: popupAppear 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Strictly center every file/folder icon and its Title + Detail naming on the same vertical axis */
+#screen-home [data-node-name="App destination"]:not(.is-desktop-hidden),
+#screen-home .f-desktop-item:not(.is-desktop-hidden),
+#figma-board-view [data-node-name="App destination"]:not(.is-desktop-hidden) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+}
+
+#screen-home .is-desktop-hidden,
+#screen-home .f-desktop-item.is-desktop-hidden,
+#screen-home [data-node-name="App destination"].is-desktop-hidden {
+  display: none !important;
+}
+
+#screen-home [data-node-name="App destination"] > [data-node-name="App icon"],
+#screen-home .f-desktop-item > [data-node-name="App icon"],
+#figma-board-view [data-node-name="App destination"] > [data-node-name="App icon"] {
+  width: 66px !important;
+  height: 64px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+#screen-home [data-node-name="App icon"] > [data-node-name="Folder shape · body"],
+#figma-board-view [data-node-name="App icon"] > [data-node-name="Folder shape · body"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+#screen-home [data-node-name="App icon"] > [data-node-name="Folder shape · lip"],
+#figma-board-view [data-node-name="App icon"] > [data-node-name="Folder shape · lip"] {
+  left: calc(50% - 29px) !important;
+}
+
+#screen-home [data-node-name="App icon"] > [data-node-name="App indicator"],
+#figma-board-view [data-node-name="App icon"] > [data-node-name="App indicator"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+#screen-home [data-node-name="App destination"] > [data-node-name="App label"],
+#screen-home .f-desktop-item > [data-node-name="App label"],
+#figma-board-view [data-node-name="App destination"] > [data-node-name="App label"] {
+  width: 100% !important;
+  max-width: 128px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 2px !important;
+  box-sizing: border-box !important;
+}
+
+#screen-home [data-node-name="App label"] [data-node-name="Title"],
+#screen-home .f-custom-desktop-item [data-node-name="Title"],
+#figma-board-view [data-node-name="App label"] [data-node-name="Title"] {
+  width: 100% !important;
+  max-width: 124px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  display: block !important;
+}
+
+#screen-home [data-node-name="App label"] [data-node-name="Detail"],
+#screen-home .f-custom-desktop-item [data-node-name="Detail"],
+#figma-board-view [data-node-name="App label"] [data-node-name="Detail"] {
+  width: 100% !important;
+  max-width: 124px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  display: block !important;
+}
+
+#screen-home [data-node-id="99:300"] [data-node-name="Dock app"] [data-node-name="Label"],
+#figma-board-view [data-node-id="99:300"] [data-node-name="Dock app"] [data-node-name="Label"] {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.custom-item-pill-badge {
+  position: absolute;
+  top: -4px;
+  right: 12px;
+  z-index: 5;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #041019;
+  background: linear-gradient(135deg, #43D9E6 0%, #38BDF8 100%);
+  box-shadow: 0 4px 12px rgba(67, 217, 230, 0.45);
+  pointer-events: none;
+}
+
+.custom-item-pill-badge.workflow-badge {
+  color: #1E1102;
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.45);
+}
+
+/* Draggable Desktop Files & Folders on the Home Page */
+#screen-home .f-desktop-item {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  position: relative;
+  z-index: 50;
+  transition: filter 0.42s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+#screen-home .f-desktop-item:hover {
+  filter: brightness(1.12) drop-shadow(0 14px 26px rgba(67, 217, 230, 0.34));
+  z-index: 95;
+}
+
+#screen-home .f-desktop-item:active {
+  transform: none;
+}
+
+#screen-home .f-desktop-item.is-dragging {
+  cursor: grabbing !important;
+  z-index: 600 !important;
+  transition: none !important;
+  filter: brightness(1.15) drop-shadow(0 18px 36px rgba(0, 0, 0, 0.78)) !important;
+}
+
+#screen-home [data-node-id="99:234"] {
+  pointer-events: none;
+}
+
+#screen-home [data-node-id="99:235"] {
+  pointer-events: auto;
+  z-index: 10;
+  will-change: transform, width, height;
+}
+
+#screen-home [data-node-id="99:236"] {
+  cursor: grab;
+  user-select: none;
+}
+
+#screen-home [data-node-id="99:235"].is-dragging {
+  z-index: 15 !important;
+  transition: none !important;
+  filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.8));
+}
+
+#screen-home [data-node-id="99:235"]::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(67, 217, 230, 0.55);
+  border-bottom: 2px solid rgba(67, 217, 230, 0.55);
+  border-bottom-right-radius: 3px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+#screen-home [data-node-id="99:264"] {
+  margin-top: auto;
+}
+
+/* Desktop Home OS Floating Windows (Blue & Yellow Files/Folders — No Overlay Backdrop) */
+.os-floating-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.os-floating-window {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  pointer-events: auto;
+  width: var(--popup-w, 900px);
+  min-width: min(480px, 94vw);
+  max-width: 96vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 6px;
+  background: #090D16;
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.82);
+  transform: translate3d(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px)), 0) scale(var(--win-scale, 1));
+  transform-origin: center center;
+  cursor: grab;
+  user-select: none;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  container-type: inline-size;
+  box-sizing: border-box;
+}
+
+.os-floating-window.active {
+  display: block;
+}
+
+.os-floating-window.is-expanding-from-icon {
+  animation: floatingExpandFromIcon 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.os-floating-window.is-collapsing-to-icon {
+  pointer-events: none !important;
+  animation: floatingCollapseToIcon 0.38s cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+
+.os-floating-window.is-dragging {
+  cursor: grabbing !important;
+  box-shadow: 0 24px 56px rgba(2, 6, 23, 0.9);
+}
+
+/* Desktop Home OS Popup Modal Backdrop & Windows (Dock / Workflow Overlays) */
+.os-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(5, 8, 17, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.os-popup-backdrop.open {
+  display: flex;
+  animation: backdropFadeIn 0.38s ease both;
+}
+
+.os-popup-backdrop.is-closing {
+  pointer-events: none;
+  animation: backdropFadeOut 0.38s ease both;
+}
+
+.os-popup-wrapper {
+  display: none;
+  position: relative;
+  width: var(--popup-w, 900px);
+  min-width: min(480px, 94vw);
+  max-width: 96vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 6px;
+  background: #090D16;
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.85);
+  cursor: grab;
+  transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0);
+  transform-origin: center center;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  container-type: inline-size;
+  box-sizing: border-box;
+}
+
+.os-popup-wrapper.active {
+  display: block;
+}
+
+.os-popup-wrapper.is-expanding-from-icon {
+  animation: overlayExpandFromIcon 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.os-popup-wrapper.is-collapsing-to-icon {
+  pointer-events: none !important;
+  animation: overlayCollapseToIcon 0.38s cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+
+.os-popup-wrapper.is-dragging {
+  cursor: grabbing !important;
+}
+
+/* Compact macOS-style Popup Close & Window Control Buttons */
+.os-floating-window [data-node-name="Window controls and title"],
+.os-popup-wrapper [data-node-name="Window controls and title"] {
+  overflow: visible !important;
+  gap: 12px !important;
+}
+
+.os-floating-window [data-close-popup="true"],
+.os-popup-wrapper [data-close-popup="true"] {
+  padding: 6px 8px !important;
+  margin: -6px -4px !important;
+  gap: 6px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+  align-items: center !important;
+  transition: background 0.26s ease !important;
+}
+
+.os-floating-window [data-close-popup="true"]:hover,
+.os-popup-wrapper [data-close-popup="true"]:hover {
+  background: rgba(30, 41, 59, 0.65) !important;
+}
+
+.os-floating-window [data-close-popup="true"] > [data-node-name="Close"],
+.os-floating-window [data-close-popup="true"] > [data-node-name="Minimize"],
+.os-floating-window [data-close-popup="true"] > [data-node-name="Zoom"],
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Close"],
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Minimize"],
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Zoom"] {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(2, 6, 23, 0.45) !important;
+  transition: transform 0.22s ease !important;
+}
+
+.os-floating-window [data-close-popup="true"] > [data-node-name="Close"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Close"]::after,
+.os-floating-window [data-close-popup="true"] > [data-node-name="Minimize"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Minimize"]::after,
+.os-floating-window [data-close-popup="true"] > [data-node-name="Zoom"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Zoom"]::after {
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(9, 13, 22, 0.85);
+}
+
+.os-floating-window [data-close-popup="true"] > [data-node-name="Close"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Close"]::after { content: "✕"; font-size: 8px; }
+.os-floating-window [data-close-popup="true"] > [data-node-name="Minimize"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Minimize"]::after { content: "−"; }
+.os-floating-window [data-close-popup="true"] > [data-node-name="Zoom"]::after,
+.os-popup-wrapper [data-close-popup="true"] > [data-node-name="Zoom"]::after { content: "+"; }
+
+.os-floating-window [data-close-popup="true"] > div:hover,
+.os-popup-wrapper [data-close-popup="true"] > div:hover { transform: scale(1.1); }
+
+.is-popup-origin-pulse { animation: popupOriginIconPulse 0.48s cubic-bezier(0.22, 1, 0.36, 1); }
+
+@keyframes floatingExpandFromIcon {
+  0% { opacity: 0; transform: translate3d(calc(-50% + var(--dx, 0px) + var(--origin-dx, 0px)), calc(-50% + var(--dy, 0px) + var(--origin-dy, 0px)), 0) scale(var(--origin-scale, 0.14)); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: translate3d(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px)), 0) scale(var(--win-scale, 1)); }
+}
+
+@keyframes floatingCollapseToIcon {
+  0% { opacity: 1; transform: translate3d(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px)), 0) scale(var(--win-scale, 1)); }
+  100% { opacity: 0; transform: translate3d(calc(-50% + var(--dx, 0px) + var(--origin-dx, 0px)), calc(-50% + var(--dy, 0px) + var(--origin-dy, 0px)), 0) scale(var(--origin-scale, 0.14)); }
+}
+
+@keyframes overlayExpandFromIcon {
+  0% { opacity: 0; transform: translate3d(calc(var(--dx, 0px) + var(--origin-dx, 0px)), calc(var(--dy, 0px) + var(--origin-dy, 0px)), 0) scale(var(--origin-scale, 0.14)); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0) scale(1); }
+}
+
+@keyframes overlayCollapseToIcon {
+  0% { opacity: 1; transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0) scale(1); }
+  100% { opacity: 0; transform: translate3d(calc(var(--dx, 0px) + var(--origin-dx, 0px)), calc(var(--dy, 0px) + var(--origin-dy, 0px)), 0) scale(var(--origin-scale, 0.14)); }
+}
+
+@keyframes backdropFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes backdropFadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+@keyframes popupOriginIconPulse {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.9); filter: brightness(1.22); }
+  75% { transform: scale(1.04); filter: brightness(1.06); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* Full Figma Board Canvas Mode (All 17 Frames at Exact Figma Coordinates) */
+.figma-board-view {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--_canvas-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow: auto;
+  position: relative;
+}
+
+body.board-mode .murph-screen-stage {
+  display: none;
+}
+
+body.board-mode .figma-board-view {
+  display: block;
+}
+
+.figma-board-plane {
+  position: relative;
+  width: 11246px;
+  height: 5220px;
+  transform-origin: 0 0;
+  transition: transform 0.28s ease;
+}
+
+.board-frame-slot {
+  position: absolute;
+}
+
+.board-frame-label {
+  position: absolute;
+  top: -32px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.board-frame-label:hover {
+  color: #38BDF8;
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+.board-frame-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+/* The bottom-right Admin-mode HUD (.flow-hud) is styled in 08-admin-mode-hud.css */

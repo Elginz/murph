@@ -1,0 +1,37 @@
+/* ==========================================================================
+ * Murph — Modular Stylesheet Entry Point (styles.css)
+ *
+ * The CSS architecture is organized into 4 focused modules under `static/css/`:
+ *   1. `01-figma-tokens-and-core.css`: Figma variables, base reset, screen stage,
+ *      zero-scroll Home OS viewport lock, and interactive node primitives.
+ *   2. `02-desktop-and-popups.css`: Draggable desktop files/folders, multi-window
+ *      floating popups, document viewer/editor drawer, Drive browser, and
+ *      workload-only SVG topology diagrams.
+ *   3. `03-terminal-trash-and-badges.css`: State-driven file badges, Terminal Chat
+ *      Agent transcript & quick chips, and the Trash Bin app + drag-to-trash UI.
+ *   4. `04-auth-and-user-settings.css`: Dual-track Cloud/DM Lock Screen, Gemini
+ *      model switcher, Sticky Bar logged-in user pill, and User Settings dropdown.
+ *   5. `05-signup-and-onboarding.css`: Pop-up style Sign-Up form with real inputs,
+ *      the empty isolated-workspace Welcome card, and the 4-step onboarding tour.
+ * ========================================================================== */
+
+@import url('/static/css/01-figma-tokens-and-core.css');
+@import url('/static/css/02-desktop-and-popups.css');
+@import url('/static/css/02b-topology-and-popup-chrome.css');
+@import url('/static/css/02c-asymmetric-popup-layouts.css');
+@import url('/static/css/02d-workload-route-topology.css');
+@import url('/static/css/03-terminal-trash-and-badges.css');
+@import url('/static/css/03b-trash-bin-window.css');
+@import url('/static/css/03c-dock-workflow-sync.css');
+@import url('/static/css/04-auth-and-user-settings.css');
+@import url('/static/css/04b-user-settings-dropdown.css');
+@import url('/static/css/05-signup-and-onboarding.css');
+@import url('/static/css/06-desktop-context-menu.css');
+@import url('/static/css/07-welcome-guide-and-tour.css');
+@import url('/static/css/08-admin-mode-hud.css');
+@import url('/static/css/09-terminal-helpdesk.css');
+@import url('/static/css/10-popup-light-mode.css');
+@import url('/static/css/11-popup-interactive-cards.css');
+@import url('/static/css/12-light-mode-legibility.css');
+@import url('/static/css/13-font-size-floor.css');
+@import url('/static/css/14-landing-page-animations.css');

@@ -1,0 +1,286 @@
+/* ============================================================================
+ * 12-light-mode-legibility.css
+ * Light Mode only (`body:not(.dock-theme-dark)`): keeps every popup fully light
+ * and lifts all text to WCAG AA (>= 4.5:1). Dark Mode colors are untouched.
+ *
+ * Root causes overridden here:
+ * - 02c paints asymmetric-layout tiles dark navy (#0D1526) with ID selectors
+ *   such as `#popup-136-730 [data-node-id="183:373"] > *`. Those beat the
+ *   class-only light rules in 10, so dark text landed on dark tiles, and the
+ *   `border` shorthand there also wiped the accent stripes from 11 §5.
+ * - 10 §4 paints nested frames white, which also erased the CTA gradients from
+ *   11 §3 (white label on a white button).
+ * - Injected components (guide, trash, drive browser, topology, dock banners,
+ *   desktop tiles) hard-code dark-theme text colors.
+ *
+ * `:is(#popup-…, .os-floating-window, .os-popup-wrapper)` takes the specificity
+ * of its most specific argument (an ID), so each rule also wins inside floating
+ * windows, whose element IDs are generated at runtime.
+ * Text accents use the 700-level shade of the same hue (sky #0369A1,
+ * amber #B45309, rose #BE123C, emerald #047857, red #B91C1C, cyan #0E7490).
+ * ============================================================================ */
+
+/* 1. Dark navy tiles from 02c -> light cards (accent stripes re-applied in §2) */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="136:361"], [data-node-id="136:401"], [data-node-id="152:4"], [data-node-id="152:14"],
+  [data-node-id="183:309"] > *, [data-node-id="171:4"] > :first-child, [data-node-id="171:4"] > :last-child,
+  [data-node-id="171:77"], [data-node-id="183:139"], [data-node-id="183:157"], [data-node-id="187:27"] > *,
+  [data-node-id="183:373"] > *, [data-node-id="183:388"] > *, [data-node-id="183:205"] > *,
+  [data-node-id="181:16"] > *, [data-node-id="183:11"] > *, [data-node-id="183:21"] > *,
+  [data-node-id="154:23"], [data-node-id="154:38"], [data-node-id="154:53"], [data-node-id="154:68"],
+  [data-node-id="154:83"], [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="155:1303"]
+) {
+  background: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 2. Accent stripes (same hues as 11 §5). The trailing [data-node-id] keeps the
+ *    specificity equal to §1, so these later rules win the left/top border. */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="136:361"], [data-node-id="152:4"], [data-node-id="152:14"],
+  [data-node-id="154:38"], [data-node-id="183:419"], [data-node-id="181:17"]
+)[data-node-id] {
+  border-left: 4px solid #0284C7 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="171:52"], [data-node-id="183:300"], [data-node-id="183:310"], [data-node-id="183:158"],
+  [data-node-id="183:170"], [data-node-id="187:41"], [data-node-id="154:83"], [data-node-id="183:389"],
+  [data-node-id="183:453"], [data-node-id="155:1253"], [data-node-id="155:1278"], [data-node-id="183:261"],
+  [data-node-id="183:22"], [data-node-id="183:52"], [data-node-id="183:79"], [data-node-id="183:106"]
+)[data-node-id] {
+  border-left: 4px solid #10B981 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="171:77"], [data-node-id="183:319"], [data-node-id="183:164"], [data-node-id="154:23"],
+  [data-node-id="183:409"], [data-node-id="183:431"], [data-node-id="155:1303"], [data-node-id="183:243"],
+  [data-node-id="181:28"]
+)[data-node-id] {
+  border-left: 4px solid #F59E0B !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="171:27"], [data-node-id="183:305"], [data-node-id="187:54"],
+  [data-node-id="154:53"], [data-node-id="183:225"], [data-node-id="181:39"]
+)[data-node-id] {
+  border-left: 4px solid #E11D48 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="183:327"], [data-node-id="187:67"], [data-node-id="154:68"],
+  [data-node-id="183:399"], [data-node-id="181:50"]
+)[data-node-id] {
+  border-left: 4px solid #6366F1 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is([data-node-id="183:374"], [data-node-id="183:12"], [data-node-id="187:28"])[data-node-id] {
+  border-top: 3.5px solid #0284C7 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is([data-node-id="183:378"], [data-node-id="187:32"])[data-node-id] {
+  border-top: 3.5px solid #6366F1 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is([data-node-id="183:382"], [data-node-id="183:15"], [data-node-id="183:18"], [data-node-id="187:36"])[data-node-id] {
+  border-top: 3.5px solid #10B981 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is([data-node-id="183:206"], [data-node-id="183:212"])[data-node-id] {
+  border-top: 3.5px solid #E11D48 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) [data-node-id="183:218"][data-node-id] {
+  border-top: 3.5px solid #F59E0B !important;
+}
+
+/* Hover ring on the interactive light tiles (11 §6 lists the same cards) */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="152:14"], [data-node-id="171:77"], [data-node-id="154:23"], [data-node-id="154:38"],
+  [data-node-id="154:53"], [data-node-id="154:68"], [data-node-id="154:83"], [data-node-id="155:1253"],
+  [data-node-id="155:1278"], [data-node-id="155:1303"], [data-node-id="183:309"] > *, [data-node-id="187:27"] > *,
+  [data-node-id="183:373"] > *, [data-node-id="183:388"] > *, [data-node-id="183:205"] > *,
+  [data-node-id="181:16"] > *, [data-node-id="183:11"] > *, [data-node-id="183:21"] > *
+):hover {
+  border-color: var(--card-ring-color, #94A3B8) !important;
+}
+
+/* Selected cards stay light (02c used #1A1000 for the chosen workflow type) */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .is-card-selected[data-node-id] {
+  background: #F0F9FF !important;
+  border-color: var(--card-ring-color, #0284C7) !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) [data-api-action="select-wf-type"].wf-type-selected {
+  --card-ring-color: #F59E0B;
+  background: #FFFBEB !important;
+  border-color: #F59E0B !important;
+}
+
+/* 3. Primary CTA gradients & avatar. Deeper light-only stops keep white labels
+ *    at >= 4.5:1 on every gradient stop. */
+body:not(.dock-theme-dark) :is(#popup-136-341, .os-floating-window[data-popup-base-id="136:341"], #popup-145-1122) {
+  --pop-cta-grad: linear-gradient(135deg, #0369A1 0%, #1D4ED8 100%);
+}
+body:not(.dock-theme-dark) :is(
+  #popup-136-468, .os-floating-window[data-popup-base-id="136:468"],
+  #popup-136-417, .os-floating-window[data-popup-base-id="136:417"],
+  #popup-136-521, .os-floating-window[data-popup-base-id="136:521"],
+  #popup-136-579, .os-floating-window[data-popup-base-id="136:579"],
+  #popup-145-1045, #popup-155-1214
+) {
+  --pop-cta-grad: linear-gradient(135deg, #B45309 0%, #C2410C 100%);
+}
+body:not(.dock-theme-dark) #popup-136-730 { --pop-cta-grad: linear-gradient(135deg, #0F766E 0%, #0369A1 100%); }
+body:not(.dock-theme-dark) #popup-136-836 { --pop-cta-grad: linear-gradient(135deg, #BE123C 0%, #B91C1C 100%); }
+body:not(.dock-theme-dark) #popup-136-890 { --pop-cta-grad: linear-gradient(135deg, #4338CA 0%, #1D4ED8 100%); }
+body:not(.dock-theme-dark) #popup-136-942 { --pop-cta-grad: linear-gradient(135deg, #047857 0%, #0F766E 100%); }
+
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="136:412"], [data-node-id="152:28"], [data-node-id="174:7"], [data-node-id="183:342"],
+  [data-node-id="183:183"], [data-node-id="187:77"], [data-node-id="154:140"], [data-node-id="183:480"],
+  [data-node-id="155:1335"], [data-node-id="183:272"], [data-node-id="136:939"], [data-node-id="183:135"]
+) {
+  background: var(--pop-cta-grad, linear-gradient(135deg, #0369A1, #1D4ED8)) !important;
+  border-color: transparent !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  [data-node-id="136:412"], [data-node-id="152:28"], [data-node-id="174:7"], [data-node-id="183:342"],
+  [data-node-id="183:183"], [data-node-id="187:77"], [data-node-id="154:140"], [data-node-id="183:480"],
+  [data-node-id="155:1335"], [data-node-id="183:272"], [data-node-id="136:939"], [data-node-id="183:135"],
+  [data-node-id="183:359"]
+) * {
+  color: #FFFFFF !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-730, .os-floating-window, .os-popup-wrapper) [data-node-id="183:359"] {
+  background: linear-gradient(135deg, #0F766E, #0369A1) !important;
+  border-color: #5EEAD4 !important;
+}
+
+/* 4. Token-colored text that is too pale on white */
+/* Placeholders and counters painted with border tokens (light value #CBD5E1) */
+body:not(.dock-theme-dark) :is(.os-floating-window, .os-popup-wrapper) .f-text:is(
+  [style*="color: var(--_fill-TM6AVM"], [style*="color: var(--_fill-DVOZCQ"], [style*="color: var(--_fill-H27ZWM"],
+  [style*="color: var(--_fill-BASR23"], [style*="color: var(--_fill-DZ3UZI"], [style*="color: var(--_fill-BE6OV4"]
+) {
+  color: #475569 !important;
+}
+/* Sage core token (#A8C4A2) has no light value in 10 §1 */
+body:not(.dock-theme-dark) :is(.os-floating-window, .os-popup-wrapper) .f-text[style*="color: var(--_fill-NBV5XO"] {
+  color: #3F6212 !important;
+}
+/* 11 §4 colors the children of these indigo pills; some pills are the text node itself */
+body:not(.dock-theme-dark) :is(
+  [data-node-id="183:295"], [data-node-id="183:332"], [data-node-id="183:368"], [data-node-id="183:405"],
+  [data-node-id="181:7"], [data-node-id="181:59"], [data-node-id="181:65"]
+) {
+  color: #4338CA !important;
+}
+
+/* 5. Injected components with hard-coded dark-theme text */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  .trash-win-title, .murph-guide-copy strong, .murph-wf-type-name, .murph-dock-app-name,
+  .workload-route-card-title, .trash-item-name, .drive-doc-name, .dock-custom-wf-title, .dock-empty-title,
+  .trash-dropzone-sub strong, .murph-tour-terminal-line.you
+) {
+  color: #0F172A !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(.murph-guide-copy, .doc-format-filename) {
+  color: #334155 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  .murph-wf-type-desc, .murph-dock-app-blurb, .dock-wf-banner-title, .trash-dropzone-sub, .trash-item-meta,
+  .trash-win-footer-note, .dock-empty-files-label, .drive-doc-meta, .dock-custom-wf-meta, .dock-empty-desc,
+  .doc-json-key-chip, .ticket-quick-tag-label
+) {
+  color: #475569 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(
+  .murph-guide-copy code, .murph-guide-kicker, .murph-guide-section-title, .workload-topology-title,
+  .murph-tour-terminal-line .src, .doc-json-key-chip strong, .murph-wf-type-legacy
+) {
+  color: #0369A1 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .murph-tour-terminal-chips span {
+  background: #E0F2FE !important;
+  border-color: #7DD3FC !important;
+  color: #0369A1 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) :is(.drive-docs-title, .wf-user-picker-label, .wf-footer-user-label) {
+  color: #B45309 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .trash-dropzone-headline {
+  color: #BE123C !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .trash-dropzone-headline span[style*="#43D9E6"] {
+  color: #0E7490 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .murph-tour-terminal-bar b {
+  color: #047857 !important;
+}
+
+/* Route status badges keep their meaning (10 §7 painted every status green) */
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .workload-route-status-badge.status-pending {
+  background: #FFFBEB !important;
+  border-color: #FCD34D !important;
+  color: #B45309 !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .workload-route-status-badge.status-assist {
+  background: #FEF2F2 !important;
+  border-color: #FCA5A5 !important;
+  color: #B91C1C !important;
+}
+body:not(.dock-theme-dark) :is(#popup-136-341, #popup-145-1122, #popup-136-417, #popup-136-468, #popup-136-521, #popup-136-579, #popup-136-730, #popup-136-836, #popup-136-890, #popup-136-942, #popup-145-1045, #popup-155-1214, .os-floating-window, .os-popup-wrapper) .workload-route-status-badge.status-preview {
+  background: #F0F9FF !important;
+  border-color: #7DD3FC !important;
+  color: #0369A1 !important;
+}
+
+/* 6. Home screen: TRASH BIN / GUIDE desktop labels sit on the bright sky
+ *    wallpaper like the other desktop labels, so they turn dark slate. */
+body:not(.dock-theme-dark) .desktop-trash-bin-tile .trash-tile-title,
+body:not(.dock-theme-dark) .desktop-welcome-guide-tile .trash-tile-title {
+  color: #0F172A;
+}
+body:not(.dock-theme-dark) .desktop-trash-bin-tile .trash-tile-detail {
+  color: #334155;
+}
+
+/* Inactive dock apps: 03c dimmed the whole app (label included) to 45%.
+ * Dim only the icon so the label stays readable on the light dock. */
+body:not(.dock-theme-dark) #screen-home .dock-app-empty {
+  opacity: 1;
+  filter: none;
+}
+body:not(.dock-theme-dark) #screen-home .dock-app-empty > [data-node-name="Dock icon"] {
+  opacity: 0.45;
+  filter: saturate(0.35);
+  transition: opacity 0.34s ease, filter 0.34s ease;
+}
+body:not(.dock-theme-dark) #screen-home .dock-app-empty:hover > [data-node-name="Dock icon"] {
+  opacity: 0.85;
+  filter: saturate(0.75);
+}
+body:not(.dock-theme-dark) #screen-home .dock-app-empty [data-node-name="Label"] {
+  color: #475569 !important;
+}
+
+/* The Gemini model menu (04) stays dark navy (#132D40) in Light Mode too;
+ * its model-id line (#7F8EAA, 4.32:1) moves to slate-400 (~5.5:1). */
+body:not(.dock-theme-dark) .gemini-model-opt-id {
+  color: #94A3B8;
+}
+
+/* 7. Onboarding tour (#murph-onboarding-tour). Its dark navy frame stays dark,
+ *    but 10 §7 paints the cards inside it light (step 3 workflow types, step 4
+ *    right-click menu preview, step 5 mini terminal, step 6 dock apps) while
+ *    their text kept the dark-theme colors from 06/07: white names vanished and
+ *    cyan/grey labels were pale. User decision: every box inside those cards is
+ *    white and every word in them is near-black, accents and greys included.
+ *    Scoped to the tour; the GUIDE window reuses these cards and is covered by §5. */
+body:not(.dock-theme-dark) #murph-onboarding-tour :is(.murph-tour-menu-preview .murph-ctx-item, .murph-tour-terminal-chips span) {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+/* The first menu item mimics the hovered row; its outline keeps a 700 accent */
+body:not(.dock-theme-dark) #murph-onboarding-tour .murph-tour-menu-preview .murph-ctx-item:first-of-type {
+  border-color: #0369A1 !important;
+}
+body:not(.dock-theme-dark) #murph-onboarding-tour :is(
+  .murph-wf-type-name, .murph-wf-type-legacy, .murph-wf-type-desc,
+  .murph-ctx-header, .murph-ctx-item, .murph-ctx-label, .murph-ctx-hint,
+  .murph-tour-terminal-bar, .murph-tour-terminal-bar b, .murph-tour-terminal-line, .murph-tour-terminal-line .src,
+  .murph-tour-terminal-chips span, .murph-dock-app-name, .murph-dock-app-blurb
+) {
+  color: #0F172A !important;
+}

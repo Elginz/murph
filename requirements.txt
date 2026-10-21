@@ -1,0 +1,3 @@
+# Optional: Murph works out-of-the-box with Python 3.10+ standard library (sqlite3, urllib.request, http.server).
+# Install google-genai if you prefer using the official SDK transport alongside the built-in REST transport:
+google-genai>=1.0.0

@@ -1,0 +1,489 @@
+/* 02c-asymmetric-popup-layouts.css — Asymmetric Popup Grids & Workflow Wizard Controls */
+ * 4. ASYMMETRIC LAYOUTS PER POPUP (Replacing 3-Column Equal Grids & Symmetric Splits)
+ * ========================================================================== */
+/* Popup 136:341 (Blue Shared File Viewer): Asymmetric 1.7fr / 1fr Editor + Scope Rail */
+#popup-136-341 [data-node-id="136:352"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:352"] {
+  display: grid !important;
+  grid-template-columns: 1.7fr 1fr !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+#popup-136-341 [data-node-id="136:353"],
+#popup-136-341 [data-node-id="136:410"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:353"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:410"] {
+  grid-column: 1 / -1 !important;
+}
+#popup-136-341 [data-node-id="136:361"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:361"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+  gap: 10px !important;
+}
+#popup-136-341 [data-node-id="136:401"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:401"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+  border-radius: 4px !important;
+}
+#popup-136-341 [data-node-id="136:403"],
+.os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:403"] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+/* Popup 145:1122 (Upload Folder & Drive Browser): Asymmetric 1.45fr / 1fr Split */
+#popup-145-1122 [data-node-id="145:1133"] {
+  display: grid !important;
+  grid-template-columns: 1.45fr 1fr !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+#popup-145-1122 [data-node-id="152:4"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+  border-radius: 4px !important;
+}
+#popup-145-1122 [data-node-id="152:14"] {
+  background: #0D1526 !important;
+  border: 1px solid #334155 !important;
+  padding: 14px !important;
+  border-radius: 4px !important;
+  justify-content: center !important;
+}
+#popup-145-1122 [data-node-id="152:26"] {
+  grid-column: 1 / -1 !important;
+}
+/* Popup 136:417 (Hard-Stop Escalations): Asymmetric 1.65fr / 1fr Decision Matrix */
+#popup-136-417 [data-node-id="183:309"],
+.os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"] {
+  display: grid !important;
+  grid-template-columns: 1.65fr 1fr !important;
+  gap: 12px !important;
+}
+#popup-136-417 [data-node-id="183:309"] > :first-child,
+.os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"] > :first-child {
+  grid-row: span 2 !important;
+  background: #0B1917 !important;
+  border: 1px solid rgba(16, 185, 129, 0.45) !important;
+  padding: 14px !important;
+}
+#popup-136-417 [data-node-id="183:309"] > :nth-child(2),
+#popup-136-417 [data-node-id="183:309"] > :nth-child(3),
+.os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"] > :nth-child(2),
+.os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"] > :nth-child(3) {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+}
+/* Popup 136:468 (Stage-1 Claim Scrub): Asymmetric 1.55fr / 1fr Source Comparison */
+#popup-136-468 [data-node-id="171:4"],
+.os-floating-window[data-popup-base-id="136:468"] [data-node-id="171:4"] {
+  display: grid !important;
+  grid-template-columns: 1.55fr 1fr !important;
+  gap: 12px !important;
+}
+#popup-136-468 [data-node-id="171:4"] > :first-child,
+.os-floating-window[data-popup-base-id="136:468"] [data-node-id="171:4"] > :first-child {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+}
+#popup-136-468 [data-node-id="171:4"] > :last-child,
+.os-floating-window[data-popup-base-id="136:468"] [data-node-id="171:4"] > :last-child {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+}
+#popup-136-468 [data-node-id="171:77"],
+.os-floating-window[data-popup-base-id="136:468"] [data-node-id="171:77"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+}
+/* Popup 136:521 (Deliverables Exporter): Asymmetric Tab Rail + Spacious Reader */
+#popup-136-521 [data-node-id="183:139"],
+.os-floating-window[data-popup-base-id="136:521"] [data-node-id="183:139"] {
+  display: grid !important;
+  grid-template-columns: 1.5fr 1.15fr 1fr 1fr !important;
+  gap: 8px !important;
+  background: #0D1526 !important;
+  padding: 8px !important;
+  border: 1px solid #1E293B !important;
+}
+#popup-136-521 [data-node-id="183:157"],
+.os-floating-window[data-popup-base-id="136:521"] [data-node-id="183:157"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 16px !important;
+  gap: 10px !important;
+}
+/* Popup 136:579 (Policy & Rates What-If Simulator): Replace 3-col equal gauges with Asymmetric 1.8fr / 1.1fr / 1fr */
+#popup-136-579 [data-node-id="187:27"],
+.os-floating-window[data-popup-base-id="136:579"] [data-node-id="187:27"] {
+  display: grid !important;
+  grid-template-columns: 1.8fr 1.1fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-579 [data-node-id="187:27"] > *,
+.os-floating-window[data-popup-base-id="136:579"] [data-node-id="187:27"] > * {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+#popup-136-579 [data-node-id="187:40"],
+.os-floating-window[data-popup-base-id="136:579"] [data-node-id="187:40"] {
+  display: grid !important;
+  grid-template-columns: 1.55fr 1fr !important;
+  gap: 12px !important;
+}
+/* Popup 136:730 (My Agent & Peer Mesh Summary): Replace 3-col KPI cards & 4-col Peer cards with Asymmetric Bento Grids */
+#popup-136-730 [data-node-id="183:373"] {
+  display: grid !important;
+  grid-template-columns: 1.85fr 1.15fr 0.95fr !important;
+  gap: 10px !important;
+}
+#popup-136-730 [data-node-id="183:373"] > * {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+#popup-136-730 [data-node-id="183:388"] {
+  display: grid !important;
+  grid-template-columns: 1.45fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-730 [data-node-id="183:388"] > * {
+  width: auto !important;
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+/* Popup 136:836 (Hard Stops Dock Overlay): Asymmetric 1.8fr / 1.1fr / 1fr Gauges + 1.45fr / 1fr Blocker Split */
+#popup-136-836 [data-node-id="183:205"] {
+  display: grid !important;
+  grid-template-columns: 1.8fr 1.1fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-836 [data-node-id="183:205"] > * {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+#popup-136-836 [data-node-id="183:224"] {
+  display: grid !important;
+  grid-template-columns: 1.45fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-836 [data-node-id="183:224"] > :nth-child(3) {
+  grid-column: 1 / -1 !important;
+}
+/* Popup 136:890 (Policy & Rates Dock Overlay): Asymmetric 1.5fr / 1fr Policy Packs */
+#popup-136-890 [data-node-id="181:16"] {
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-890 [data-node-id="181:16"] > * {
+  width: auto !important;
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+/* Popup 136:942 (Deliverables Dock Overlay): Replace 3-col status metrics with Asymmetric 1.85fr / 1.1fr / 1fr & 1.45fr / 1fr Cards */
+#popup-136-942 [data-node-id="183:11"] {
+  display: grid !important;
+  grid-template-columns: 1.85fr 1.1fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-942 [data-node-id="183:11"] > * {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+#popup-136-942 [data-node-id="183:21"] {
+  display: grid !important;
+  grid-template-columns: 1.45fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-136-942 [data-node-id="183:21"] > * {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 12px 14px !important;
+}
+/* Popup 145:1045 (Create Agent Workflow Wizard): Asymmetric Bento Workflow Selector */
+#popup-145-1045 [data-node-id="154:18"] {
+  display: grid !important;
+  grid-template-columns: 1.45fr 1fr !important;
+  gap: 10px !important;
+}
+#popup-145-1045 [data-node-id="154:19"],
+#popup-145-1045 [data-node-id="154:23"] {
+  grid-column: 1 / -1 !important;
+}
+#popup-145-1045 [data-node-id="154:23"],
+#popup-145-1045 [data-node-id="154:38"],
+#popup-145-1045 [data-node-id="154:53"],
+#popup-145-1045 [data-node-id="154:68"],
+#popup-145-1045 [data-node-id="154:83"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+  transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+/* Selected Workflow Type Card (Orange Accent #F59E0B / #1A1000) */
+[data-api-action="select-wf-type"].wf-type-selected,
+#popup-145-1045 [data-api-action="select-wf-type"].wf-type-selected {
+  background: #1A1000 !important;
+  border: 1px solid #F59E0B !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2) !important;
+}
+/* Workflow Settlement User Picker & Bilateral Agent Settlement Banners */
+.wf-user-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+.wf-user-Picker-label,
+.wf-user-picker-label {
+  color: #F59E0B;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wf-user-select-dropdown {
+  flex: 1;
+  background: #0B1228;
+  border: 1.2px solid #F59E0B;
+  border-radius: 6px;
+  color: #F8FAFC;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+}
+.wf-user-select-dropdown:focus {
+  border-color: #43D9E6;
+  box-shadow: 0 0 0 2px rgba(67, 217, 230, 0.2);
+}
+.wf-footer-user-picker-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0B1228;
+  border: 1px solid #F59E0B;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+.wf-footer-user-label {
+  color: #F59E0B;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wf-footer-user-select {
+  background: transparent;
+  border: none;
+  color: #F8FAFC;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+.wf-footer-user-select option {
+  background: #0B1228;
+  color: #F8FAFC;
+}
+.wf-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #0D1328;
+  border: 1px solid #1E2E5A;
+  color: #94A3B8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  user-select: none;
+}
+.wf-tag-pill:hover {
+  border-color: #43D9E6;
+  color: #E2E8F0;
+}
+.wf-tag-pill.active {
+  background: #0C2538;
+  border-color: #43D9E6;
+  color: #43D9E6;
+  box-shadow: 0 0 12px rgba(67, 217, 230, 0.18);
+}
+.wf-tag-pill .wf-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #475569;
+}
+.wf-tag-pill.active .wf-tag-dot {
+  background: #34D399;
+}
+.wf-tag-custom-input {
+  width: 100%;
+  background: #080E20;
+  border: 1px solid #1E2E5A;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #E2E8F0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9.5px;
+  outline: none;
+}
+.wf-tag-custom-input:focus {
+  border-color: #43D9E6;
+}
+.wf-settlement-preview-bar {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34D399;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8.5px;
+  line-height: 1.4;
+}
+.ticket-quick-tag-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #091024;
+  border: 1px solid #1B2950;
+  border-radius: 6px;
+}
+.ticket-quick-tag-label {
+  color: #64748B;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  margin-right: 4px;
+}
+.ticket-tag-chip {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #101A36;
+  border: 1px solid #243665;
+  color: #93C5FD;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8.5px;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+.ticket-tag-chip:hover,
+.ticket-tag-chip.active {
+  background: #123142;
+  border-color: #43D9E6;
+  color: #43D9E6;
+}
+.settled-update-banner {
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #A7F3D0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8.5px;
+  line-height: 1.35;
+}
+/* Popup 155:1214 (Claim Scrubs Dock Overlay): Asymmetric Status Bar & High-Contrast Diff Cards */
+#popup-155-1214 [data-node-id="155:1242"] {
+  display: grid !important;
+  grid-template-columns: 1.6fr 1.2fr 1fr !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+#popup-155-1214 [data-node-id="155:1253"],
+#popup-155-1214 [data-node-id="155:1278"],
+#popup-155-1214 [data-node-id="155:1303"] {
+  background: #0D1526 !important;
+  border: 1px solid #1E293B !important;
+  padding: 14px !important;
+  gap: 10px !important;
+}
+#popup-155-1214 [data-node-id="155:1264"],
+#popup-155-1214 [data-node-id="155:1289"],
+#popup-155-1214 [data-node-id="155:1314"],
+.os-popup-wrapper [data-node-name="Removed claim"],
+.os-floating-window [data-node-name="Removed claim"] {
+  background: #1A0B0F !important;
+  border: 1px solid rgba(239, 68, 68, 0.45) !important;
+  padding: 10px 12px !important;
+  border-radius: 4px !important;
+}
+#popup-155-1214 [data-node-id="155:1267"],
+#popup-155-1214 [data-node-id="155:1292"],
+#popup-155-1214 [data-node-id="155:1317"],
+.os-popup-wrapper [data-node-name="Added claim"],
+.os-floating-window [data-node-name="Added claim"] {
+  background: #081C17 !important;
+  border: 1px solid rgba(16, 185, 129, 0.45) !important;
+  padding: 10px 12px !important;
+  border-radius: 4px !important;
+}
+/* 5. CONTAINER & VIEWPORT RESPONSIVE REFLOW FOR SIZABLE POPUPS */
+@container (max-width: 720px) {
+  #popup-136-341 [data-node-id="136:352"], .os-floating-window[data-popup-base-id="136:341"] [data-node-id="136:352"],
+  #popup-145-1122 [data-node-id="145:1133"], .drive-docs-list,
+  #popup-136-417 [data-node-id="183:309"], .os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"],
+  #popup-136-468 [data-node-id="171:4"], .os-floating-window[data-popup-base-id="136:468"] [data-node-id="171:4"],
+  #popup-136-579 [data-node-id="187:27"], .os-floating-window[data-popup-base-id="136:579"] [data-node-id="187:27"],
+  #popup-136-579 [data-node-id="187:40"], .os-floating-window[data-popup-base-id="136:579"] [data-node-id="187:40"],
+  #popup-136-730 [data-node-id="183:373"], #popup-136-730 [data-node-id="183:388"],
+  #popup-136-836 [data-node-id="183:205"], #popup-136-836 [data-node-id="183:224"],
+  #popup-136-890 [data-node-id="181:16"], #popup-136-942 [data-node-id="183:11"],
+  #popup-136-942 [data-node-id="183:21"], #popup-145-1045 [data-node-id="154:18"],
+  #popup-155-1214 [data-node-id="155:1242"], .trash-win-body, .murph-dock-apps {
+    grid-template-columns: 1fr !important;
+  }
+  #popup-136-521 [data-node-id="183:139"], .os-floating-window[data-popup-base-id="136:521"] [data-node-id="183:139"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  #popup-136-417 [data-node-id="183:309"] > :first-child,
+  .os-floating-window[data-popup-base-id="136:417"] [data-node-id="183:309"] > :first-child {
+    grid-row: auto !important;
+  }
+  .os-floating-window [data-node-name="Window content"], .os-popup-wrapper [data-node-name="Window content"] {
+    padding: 12px 14px 28px 14px !important;
+  }
+  .doc-viewer-drawer, .drive-docs-browser {
+    margin: 8px 14px 24px 14px !important;
+    padding: 12px 14px !important;
+  }
+}
+@container (min-width: 1120px) {
+  #popup-136-730 [data-node-id="183:388"], #popup-136-890 [data-node-id="181:16"],
+  #popup-136-942 [data-node-id="183:21"], .drive-docs-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .murph-dock-apps {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}

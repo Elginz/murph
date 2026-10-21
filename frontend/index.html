@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Murph — Multi-Agent Unified Resource &amp; Project Harmonizer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 6 138 136'%3E%3Cdefs%3E%3ClinearGradient id='r' x1='22' y1='22' x2='126' y2='126' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23596CFF' stop-opacity='0.88'/%3E%3Cstop offset='48%25' stop-color='%2343D9E6' stop-opacity='0.88'/%3E%3Cstop offset='100%25' stop-color='%23A65CFF' stop-opacity='0.88'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='30' y1='30' x2='118' y2='118' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23596CFF' stop-opacity='0.65'/%3E%3Cstop offset='48%25' stop-color='%2343D9E6' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23A65CFF' stop-opacity='0.65'/%3E%3C/linearGradient%3E%3ClinearGradient id='m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23596CFF'/%3E%3Cstop offset='48%25' stop-color='%2343D9E6'/%3E%3Cstop offset='100%25' stop-color='%23A65CFF'/%3E%3C/linearGradient%3E%3CradialGradient id='h' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23040817'/%3E%3Cstop offset='100%25' stop-color='%2312223E'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='138' height='136' rx='32' fill='%23070B1C'/%3E%3Ccircle cx='74' cy='74' r='52' fill='none' stroke='url(%23r)' stroke-width='6'/%3E%3Ccircle cx='74' cy='74' r='35.25' fill='none' stroke='rgba(102,141,235,0.28)' stroke-width='1.5'/%3E%3Cpath d='M74 31V59M74 89V117M31 74H59M89 74H117M43.59 43.59L63.39 63.39M84.61 84.61L104.41 104.41M104.41 43.59L84.61 63.39M63.39 84.61L43.59 104.41' stroke='url(%23s)' stroke-width='2' stroke-linecap='round'/%3E%3Cg fill='url(%23m)' stroke='rgba(233,255,255,0.75)' stroke-width='0.8'%3E%3Crect x='65' y='17.5' width='18' height='9' rx='4.5'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(0.707107 -0.707107 0.707107 0.707107 101.77 32.73)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(0 -1 1 0 117 69.5)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(-0.707107 -0.707107 0.707107 -0.707107 101.77 106.27)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(-1 0 0 -1 65 121.5)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(-0.707107 0.707107 -0.707107 -0.707107 28.23 106.27)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(0 1 -1 0 13 69.5)'/%3E%3Crect width='18' height='9' rx='4.5' transform='matrix(0.707107 0.707107 -0.707107 0.707107 28.23 32.73)'/%3E%3C/g%3E%3Crect x='126' y='70' width='15' height='8' rx='4' fill='%23B9F9FF' stroke='rgba(107,120,255,0.75)' stroke-width='1'/%3E%3Ccircle cx='74' cy='74' r='19' fill='none' stroke='url(%23s)' stroke-width='10'/%3E%3Ccircle cx='74' cy='74' r='13.25' fill='url(%23h)' stroke='rgba(141,238,242,0.72)' stroke-width='1.5'/%3E%3Crect width='8' height='8' rx='2.5' transform='matrix(0.707107 -0.707107 0.707107 0.707107 70 70)' fill='url(%23m)'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Modular CSS Architecture (4 domain stylesheets imported via styles.css) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. INTERACTIVE 4-SCREEN APPLICATION STAGE (#screen-stage)
+       Each screen's Figma DOM is modularized under `static/fragments/` and
+       expanded server-side by `server.py` (with client-side fallback).
+       ======================================================================== -->
+  <main class="murph-screen-stage" id="screen-stage">
+
+    <!-- Screen 1: Murph Introduction Page (Figma Frame 102:3234) -->
+    <section class="murph-screen active" id="screen-intro" data-screen="intro">
+      <!-- @fragment static/fragments/01-screen-intro.html -->
+    </section>
+
+    <!-- Screen 2: Dual-Track Cloud & Marketing Lock Screen (Figma Frame 61:334) -->
+    <section class="murph-screen" id="screen-lock" data-screen="lock">
+      <!-- @fragment static/fragments/02-screen-lock.html -->
+    </section>
+
+    <!-- Screen 3: User Account Sign-Up & Agent Binding (Figma Frame 65:391) -->
+    <section class="murph-screen" id="screen-signup" data-screen="signup">
+      <!-- @fragment static/fragments/03-screen-signup.html -->
+    </section>
+
+    <!-- Screen 4: Murph Home Page Desktop OS (Figma Frame 99:3) -->
+    <section class="murph-screen" id="screen-home" data-screen="home">
+      <!-- @fragment static/fragments/04-screen-home.html -->
+    </section>
+
+    <!-- ======================================================================
+         2. FLOATING MULTI-WINDOW DESKTOP POPUPS (#os-floating-layer)
+         Allows numerous Blue files, Yellow workflow folders, and the Trash Bin
+         to be opened, dragged, and viewed simultaneously.
+         ====================================================================== -->
+    <div class="os-floating-layer" id="os-floating-layer">
+      <!-- @fragment static/fragments/05-floating-popups.html -->
+    </div>
+
+    <!-- ======================================================================
+         3. OVERLAY MODAL POPUP WINDOWS (#os-popup-backdrop)
+         Opened from Bottom Dock, desktop right-click menu, and Workflow Wizards.
+         ====================================================================== -->
+    <div class="os-popup-backdrop" id="os-popup-backdrop" aria-hidden="true">
+      <!-- @fragment static/fragments/06-overlay-popups.html -->
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       4. FULL 17-FRAME FIGMA BOARD OVERVIEW (#figma-board-view)
+       ======================================================================== -->
+  <section class="figma-board-view" id="figma-board-view" aria-label="Full Figma Board Canvas">
+    <!-- @fragment static/fragments/07-figma-board.html -->
+  </section>
+
+  <!-- Hidden file input for reference file / folder upload interactions -->
+  <input type="file" id="hidden-file-picker" style="display: none" multiple />
+
+  <!-- ========================================================================
+       5. GEMINI MODEL SWITCHER POPOVER (#gemini-model-menu)
+       ======================================================================== -->
+  <div class="gemini-model-menu" id="gemini-model-menu" role="listbox" aria-label="Switch Gemini Runtime Model">
+    <button class="gemini-model-option active" type="button" role="option" data-api-action="select-gemini-model" data-model-id="gemini-3.8-flash">
+      <div class="gemini-model-opt-left">
+        <span class="gemini-model-opt-name">Gemini 3.8 Flash</span>
+        <span class="gemini-model-opt-id">gemini-3.8-flash · v3.8</span>
+      </div>
+      <div class="gemini-model-opt-right">
+        <span class="gemini-model-opt-badge">AGENTIC FLASH</span>
+        <span class="gemini-model-opt-latency">18ms</span>
+      </div>
+    </button>
+    <button class="gemini-model-option" type="button" role="option" data-api-action="select-gemini-model" data-model-id="gemini-3.1-pro-preview">
+      <div class="gemini-model-opt-left">
+        <span class="gemini-model-opt-name">Gemini 3.1 Pro</span>
+        <span class="gemini-model-opt-id">gemini-3.1-pro-preview</span>
+      </div>
+      <div class="gemini-model-opt-right">
+        <span class="gemini-model-opt-badge">DEEP REASONING</span>
+        <span class="gemini-model-opt-latency">36ms</span>
+      </div>
+    </button>
+    <button class="gemini-model-option" type="button" role="option" data-api-action="select-gemini-model" data-model-id="gemini-3.5-flash-lite">
+      <div class="gemini-model-opt-left">
+        <span class="gemini-model-opt-name">Gemini 3.5 Flash-Lite</span>
+        <span class="gemini-model-opt-id">gemini-3.5-flash-lite</span>
+      </div>
+      <div class="gemini-model-opt-right">
+        <span class="gemini-model-opt-badge">LOW LATENCY</span>
+        <span class="gemini-model-opt-latency">11ms</span>
+      </div>
+    </button>
+    <button class="gemini-model-option" type="button" role="option" data-api-action="select-gemini-model" data-model-id="gemini-3.5-flash">
+      <div class="gemini-model-opt-left">
+        <span class="gemini-model-opt-name">Gemini 3.5 Flash</span>
+        <span class="gemini-model-opt-id">gemini-3.5-flash · v3.5</span>
+      </div>
+      <div class="gemini-model-opt-right">
+        <span class="gemini-model-opt-badge">WORKHORSE</span>
+        <span class="gemini-model-opt-latency">21ms</span>
+      </div>
+    </button>
+  </div>
+
+
+  <!-- ========================================================================
+       6. STICKY BAR LOGGED-IN USER PROFILE & SETTINGS DROPDOWN (#user-settings-dropdown)
+       Opened by clicking the top-right username pill (`99:298` or `102:3259`).
+       ======================================================================== -->
+  <div class="user-settings-dropdown" id="user-settings-dropdown" role="dialog" aria-label="Logged-In User Profile and Settings">
+    <div class="user-settings-header">
+      <div class="user-settings-identity-card">
+        <div class="user-settings-avatar-lg" id="user-dropdown-avatar">EC</div>
+        <div class="user-settings-id-meta">
+          <div class="user-settings-id-title" id="user-dropdown-display-name">Cloud User (Cloud Launch Lead)</div>
+          <div class="user-settings-id-email" id="user-dropdown-email">cloud_demo@google.com</div>
+          <div class="user-settings-id-badges">
+            <span class="user-settings-pill green" id="user-dropdown-env-pill">☁️ CLOUD USER</span>
+            <span class="user-settings-pill" id="user-dropdown-nda-pill">NDA: TIER-2</span>
+          </div>
+        </div>
+      </div>
+      <button class="user-settings-close-btn" type="button" data-api-action="close-user-settings-menu" title="Close User Settings">✕</button>
+    </div>
+
+    <div class="user-settings-section-title">
+      <span>⚙️ Adjust Logged-In User Settings</span>
+      <span style="color: #43D9E6;">SQLite Synced</span>
+    </div>
+
+    <div class="user-settings-grid">
+      <div class="user-settings-field full">
+        <label class="user-settings-label" for="user-setting-email">Logged-In Username / Email (LDAP)</label>
+        <input class="user-settings-input" id="user-setting-email" type="text" placeholder="cloud_demo@google.com" autocomplete="off" readonly />
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-name">Display Name</label>
+        <input class="user-settings-input" id="user-setting-name" type="text" placeholder="Cloud User" autocomplete="off" />
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-role">Role / Title</label>
+        <input class="user-settings-input" id="user-setting-role" type="text" placeholder="Cloud Launch Lead" autocomplete="off" />
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-dept">Department / Org</label>
+        <input class="user-settings-input" id="user-setting-dept" type="text" placeholder="Cloud AI GTM" autocomplete="off" />
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-nda">NDA Clearance Tier</label>
+        <select class="user-settings-select" id="user-setting-nda">
+          <option value="TIER-1">TIER-1 · Public &amp; Standard</option>
+          <option value="TIER-2" selected>TIER-2 · Mutual NDA Floor</option>
+          <option value="TIER-3">TIER-3 · Executive Waiver</option>
+        </select>
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-team-agent">Bound Team Agent</label>
+        <select class="user-settings-select" id="user-setting-team-agent">
+          <option value="pm_agent">Cloud PM Team Agent</option>
+          <option value="brand_agent">Brand &amp; Comms Team Agent</option>
+          <option value="legal_agent">Legal &amp; NDA Team Agent</option>
+          <option value="commercial_agent">Commercial &amp; PSO Team Agent</option>
+        </select>
+      </div>
+      <div class="user-settings-field">
+        <label class="user-settings-label" for="user-setting-workspace-tier">Default File Scope</label>
+        <select class="user-settings-select" id="user-setting-workspace-tier">
+          <option value="federated">Federated Across Teams</option>
+          <option value="private">Private to My Agent</option>
+        </select>
+      </div>
+      <div class="user-settings-field full">
+        <label class="user-settings-label" for="user-setting-agent-name">Personal Agent Name</label>
+        <input class="user-settings-input" id="user-setting-agent-name" type="text" placeholder="Cloud User's Personal Agent" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="user-settings-save-row">
+      <button class="user-settings-save-btn" type="button" data-api-action="save-user-settings">✓ Save &amp; Apply User Settings</button>
+    </div>
+
+    <div class="user-settings-section-title">
+      <span>👥 Switch User Account</span>
+      <span id="user-settings-account-count">2 Accounts</span>
+    </div>
+    <div class="user-settings-switcher-list" id="user-settings-switcher-list"></div>
+
+    <div class="user-settings-footer">
+      <button class="user-settings-footer-btn" type="button" data-api-action="user-menu-goto-signup">➕ Create Account</button>
+      <button class="user-settings-footer-btn" type="button" data-api-action="open-onboarding-tour">? Tour</button>
+      <button class="user-settings-footer-btn" type="button" data-api-action="user-menu-goto-lock">🔒 Lock Screen</button>
+      <button class="user-settings-footer-btn danger" type="button" data-api-action="user-menu-logout">⏻ Sign Out</button>
+    </div>
+  </div>
+
+  <!-- Toast feedback -->
+  <div class="murph-toast" id="murph-toast" role="status" aria-live="polite"></div>
+
+  <!-- Mobile / Small-Screen Optimization Sign (#murph-mobile-guard-overlay) -->
+  <div class="murph-mobile-guard-overlay" id="murph-mobile-guard-overlay" role="dialog" aria-modal="true" aria-labelledby="murph-mobile-guard-title" aria-hidden="true">
+    <div class="murph-mobile-guard-card">
+      <div class="murph-mobile-guard-emblem" aria-hidden="true">
+        <svg viewBox="6 6 138 136" width="68" height="68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mg-ring" x1="22" y1="22" x2="126" y2="126" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#596CFF" stop-opacity="0.92"/>
+              <stop offset="48%" stop-color="#43D9E6" stop-opacity="0.92"/>
+              <stop offset="100%" stop-color="#A65CFF" stop-opacity="0.92"/>
+            </linearGradient>
+            <linearGradient id="mg-core" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#596CFF"/>
+              <stop offset="48%" stop-color="#43D9E6"/>
+              <stop offset="100%" stop-color="#A65CFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="6" y="6" width="138" height="136" rx="32" fill="#070B1C" stroke="rgba(67,217,230,0.35)" stroke-width="2"/>
+          <circle cx="74" cy="74" r="50" fill="none" stroke="url(#mg-ring)" stroke-width="5.5"/>
+          <circle cx="74" cy="74" r="34" fill="none" stroke="rgba(102,141,235,0.32)" stroke-width="1.5"/>
+          <path d="M74 31V59M74 89V117M31 74H59M89 74H117M43.59 43.59L63.39 63.39M84.61 84.61L104.41 104.41M104.41 43.59L84.61 63.39M63.39 84.61L43.59 104.41" stroke="url(#mg-ring)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="74" cy="74" r="18" fill="#0B132B" stroke="#43D9E6" stroke-width="2.5"/>
+          <rect width="10" height="10" rx="2.5" transform="matrix(0.707107 -0.707107 0.707107 0.707107 67 74)" fill="url(#mg-core)"/>
+        </svg>
+      </div>
+      <div class="murph-mobile-guard-badge">
+        <span class="murph-mobile-guard-dot"></span>
+        <span>DESKTOP WORKSPACE REQUIRED</span>
+      </div>
+      <h2 class="murph-mobile-guard-title" id="murph-mobile-guard-title">
+        This website is currently not optimized for mobile — please view it on a larger screen.
+      </h2>
+      <p class="murph-mobile-guard-desc">
+        Murph is an interactive multi-window desktop OS and multi-agent workspace designed for laptop and desktop displays.
+      </p>
+      <div class="murph-mobile-guard-devices" aria-label="Screen size comparison">
+        <div class="murph-mobile-device-pill is-mobile">
+          <span class="murph-mobile-device-icon" aria-hidden="true">📱</span>
+          <div class="murph-mobile-device-text">
+            <strong>Mobile / Small Screen</strong>
+            <span id="murph-mobile-viewport-readout">Detected &lt; 900px</span>
+          </div>
+        </div>
+        <span class="murph-mobile-device-arrow" aria-hidden="true">➔</span>
+        <div class="murph-mobile-device-pill is-desktop">
+          <span class="murph-mobile-device-icon" aria-hidden="true">💻</span>
+          <div class="murph-mobile-device-text">
+            <strong>Laptop / Desktop</strong>
+            <span>1280px+ Recommended</span>
+          </div>
+        </div>
+      </div>
+      <div class="murph-mobile-guard-actions">
+        <button class="murph-mobile-guard-btn primary" id="murph-mobile-copy-link-btn" type="button">📋 Copy Link for Desktop</button>
+        <button class="murph-mobile-guard-btn secondary" id="murph-mobile-dismiss-btn" type="button">Continue anyway →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom-Right "Admin mode" HUD: collapsed pill by default; click it to expand the screen switcher + Reset -->
+  <nav class="flow-hud is-collapsed" id="admin-hud" aria-label="Admin mode screen switcher">
+    <button class="flow-hud-btn flow-hud-toggle" id="hud-admin-toggle" type="button" aria-expanded="false" aria-controls="hud-admin-panel" title="Admin mode · jump between demo screens or reset the workspace">Admin mode <span class="flow-hud-caret" aria-hidden="true">‹</span></button>
+    <div class="flow-hud-panel" id="hud-admin-panel">
+      <button class="flow-hud-btn active" data-switch-screen="intro">1 · Intro Page</button>
+      <button class="flow-hud-btn" data-switch-screen="lock">2 · Lock Screen</button>
+      <button class="flow-hud-btn" data-switch-screen="signup">3 · Sign-Up</button>
+      <button class="flow-hud-btn" data-switch-screen="home">4 · Home OS</button>
+      <button class="flow-hud-btn" data-api-action="reset-workspace" title="Reset SQLite workspace to initial seed state">↻ Reset</button>
+    </div>
+  </nav>
+
+
+  <!-- ========================================================================
+       7. MODULAR FRONTEND JAVASCRIPT CONTROLLERS (`static/js/01..09`)
+       ======================================================================== -->
+  <script src="/static/js/01-config-and-state.js"></script>
+  <script src="/static/js/01b-accounts-registry.js"></script>
+  <script src="/static/js/02-auth-and-user-settings.js"></script>
+  <script src="/static/js/02b-figma-state-sync.js"></script>
+  <script src="/static/js/02c-desktop-icon-templates.js"></script>
+  <script src="/static/js/03a-desktop-badges-and-storage.js"></script>
+  <script src="/static/js/03-trash-and-desktop.js"></script>
+  <script src="/static/js/03b-desktop-renderer.js"></script>
+  <script src="/static/js/03c-desktop-context-menu.js"></script>
+  <script src="/static/js/03d-welcome-guide-app.js"></script>
+  <script src="/static/js/03e-dock-workflow-sync.js"></script>
+  <script src="/static/js/04-popups-docs-and-topology.js"></script>
+  <script src="/static/js/04b-workload-topology-and-deliverables.js"></script>
+  <script src="/static/js/04c-workload-route-topology.js"></script>
+  <script src="/static/js/04d-topology-svg-builder.js"></script>
+  <script src="/static/js/05-drag-and-viewport.js"></script>
+  <script src="/static/js/05b-pointer-drag-events.js"></script>
+  <script src="/static/js/06-terminal-agent.js"></script>
+  <script src="/static/js/06b-terminal-helpdesk.js"></script>
+  <script src="/static/js/07a-actions-files-and-signup.js"></script>
+  <script src="/static/js/07b-actions-signup.js"></script>
+  <script src="/static/js/07c-actions-workflow-wizard.js"></script>
+  <script src="/static/js/07d-google-oauth.js"></script>
+  <script src="/static/js/07b-actions-governance-and-workflows.js"></script>
+  <script src="/static/js/07-api-actions.js"></script>
+  <script src="/static/js/08-events-and-init.js"></script>
+  <script src="/static/js/09-onboarding-tour.js"></script>
+  <script src="/static/js/10-landing-page-animations.js"></script>
+</body>
+</html>

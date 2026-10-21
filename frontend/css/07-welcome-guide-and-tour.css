@@ -1,0 +1,477 @@
+/* ============================================================================
+ * 07. Welcome GUIDE App + Tour Visuals (`07-welcome-guide-and-tour.css`)
+ * ----------------------------------------------------------------------------
+ * Styles for the GUIDE desktop app (03d-welcome-guide-app.js: tile
+ * `#desktop-welcome-guide`, floating window `#popup-guide-welcome`), the shared
+ * Workflow Types list + Dock app summaries, and the visuals embedded in the
+ * 7-step onboarding tour (09-onboarding-tour.js). Pop-up aesthetic only:
+ * Manrope/Poppins, flat #090D16 / #0D1526, 2px #38BDF8 borders, hard offset
+ * shadows, zero gradients.
+ * ============================================================================ */
+
+/* ---- GUIDE desktop tile (sits right after TRASH BIN in Row 1) ------------- */
+.desktop-trash-bin-tile.desktop-welcome-guide-tile .trash-app-icon-box {
+  background: #0D1526;
+  border: 2px solid #38BDF8;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 #020617;
+}
+
+.desktop-trash-bin-tile.desktop-welcome-guide-tile:hover .trash-app-icon-box {
+  border-color: #7DD3FC;
+  box-shadow: 6px 6px 0 #020617;
+}
+
+.desktop-welcome-guide-tile .trash-tile-title {
+  color: #7DD3FC;
+}
+
+/* ---- GUIDE floating window ------------------------------------------------ */
+.welcome-guide-floating-window {
+  width: var(--popup-w, 760px);
+  max-width: 96vw;
+  background: #090D16;
+  border: 2px solid #38BDF8;
+  border-radius: 6px;
+  color: #F8FAFC;
+  box-shadow: 12px 12px 0 #020617;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+}
+
+.murph-guide-titlebar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 120 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #0D1526;
+  border-bottom: 2px solid #1E3A5F;
+}
+
+.murph-guide-close {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 2px solid #1E3A5F;
+  border-radius: 3px;
+  background: #090D16;
+  color: #F8FAFC;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.murph-guide-close:hover {
+  border-color: #EF4444;
+  color: #EF4444;
+}
+
+.murph-guide-body {
+  max-height: none;
+  overflow: visible;
+  padding: 22px 24px 32px;
+  cursor: default;
+}
+
+.murph-guide-hero {
+  padding: 18px 20px;
+  background: #0D1526;
+  border: 2px solid #1E3A5F;
+  border-left: 5px solid #38BDF8;
+  border-radius: 4px;
+}
+
+.murph-guide-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #38BDF8;
+}
+
+.murph-guide-title {
+  margin: 10px 0 8px;
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.murph-guide-copy {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #CBD5E1;
+}
+
+.murph-guide-copy strong {
+  color: #F8FAFC;
+}
+
+.murph-guide-copy .murph-icon {
+  margin: -3px 4px 0 2px;
+}
+
+.murph-guide-copy code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 1px 6px;
+  background: #090D16;
+  border: 1px solid #1E3A5F;
+  border-radius: 3px;
+  color: #7DD3FC;
+}
+
+.murph-guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.murph-guide-section {
+  margin-top: 20px;
+}
+
+.murph-guide-section-title {
+  margin: 0 0 10px;
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #38BDF8;
+}
+
+.murph-guide-terminal-note {
+  padding: 14px 16px;
+  background: #0D1526;
+  border: 2px solid #1E3A5F;
+  border-left: 5px solid #38BDF8;
+  border-radius: 4px;
+}
+
+/* ---- Workflow Types list (GUIDE app + tour step 3) ------------------------ */
+.murph-wf-types {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.murph-wf-type-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  text-align: left;
+  background: #0D1526;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: #E2E8F0;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  transition: border-color 160ms linear, background-color 160ms linear;
+}
+
+button.murph-wf-type-item {
+  cursor: pointer;
+}
+
+button.murph-wf-type-item:hover,
+button.murph-wf-type-item:focus-visible {
+  outline: none;
+  border-color: #38BDF8;
+  background: #0F172A;
+}
+
+.murph-wf-type-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.murph-wf-type-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.murph-wf-type-name {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.murph-wf-type-legacy {
+  font-style: normal;
+  font-weight: 600;
+  color: #38BDF8;
+}
+
+.murph-wf-type-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #94A3B8;
+}
+
+.murph-wf-types.compact {
+  gap: 4px;
+}
+
+.murph-wf-types.compact .murph-wf-type-item {
+  padding: 6px 10px;
+  gap: 10px;
+}
+
+.murph-wf-types.compact .murph-wf-type-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.murph-wf-types.compact .murph-wf-type-name {
+  font-size: 13px;
+}
+
+.murph-wf-types.compact .murph-wf-type-desc {
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+/* ---- Dock app summaries (GUIDE app + tour step 6) ------------------------- */
+.murph-dock-apps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.murph-dock-app {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  background: #0D1526;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: #E2E8F0;
+  cursor: pointer;
+  font-family: 'Manrope', 'Poppins', sans-serif;
+  transition: border-color 160ms linear, background-color 160ms linear;
+}
+
+.murph-dock-app:hover,
+.murph-dock-app:focus-visible {
+  outline: none;
+  border-color: #38BDF8;
+  background: #0F172A;
+}
+
+.murph-dock-app-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 54px;
+  flex-shrink: 0;
+  background: #090D16;
+  border: 2px solid #1E3A5F;
+  border-radius: 6px;
+}
+
+.murph-dock-clone {
+  display: inline-block;
+  transform: scale(0.76);
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.murph-dock-clone [data-node-name="Dock icon"] {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+.murph-dock-app-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.murph-dock-app-name {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.murph-dock-app-blurb {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #94A3B8;
+}
+
+.murph-dock-apps.icons-only {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.murph-dock-apps.icons-only .murph-dock-app {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Onboarding tour: multi-icon header + embedded visuals ---------------- */
+.murph-onboarding-body {
+  max-height: 76vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.murph-onboarding-icon {
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.murph-onboarding-visual {
+  margin-top: 10px;
+  min-width: 0;
+}
+
+.murph-onboarding-visual .murph-wf-type-item,
+.murph-onboarding-visual .murph-dock-app {
+  pointer-events: none;
+}
+
+.murph-onboarding-visual .murph-dock-apps {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Static replica of the right-click menu (03c) — NOT the fixed-position live menu */
+.murph-tour-menu-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 300px;
+  max-width: 100%;
+  padding: 8px;
+  background: #090D16;
+  border: 2px solid #38BDF8;
+  box-shadow: 8px 8px 0 #020617;
+  color: #E2E8F0;
+  pointer-events: none;
+}
+
+.murph-tour-menu-preview .murph-ctx-item:first-of-type {
+  border-color: #38BDF8;
+  background: #0F172A;
+}
+
+/* Miniature of the Agent Terminal console (06-terminal-agent.js) */
+.murph-tour-terminal {
+  background: #05070C;
+  border: 2px solid #38BDF8;
+  box-shadow: 6px 6px 0 #020617;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #CBD5E1;
+  pointer-events: none;
+}
+
+.murph-tour-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: #0D1526;
+  border-bottom: 2px solid #1E3A5F;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.murph-tour-terminal-bar b {
+  color: #34D399;
+  font-weight: 700;
+}
+
+.murph-tour-terminal-bar .dots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.murph-tour-terminal-bar .dots i {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #EF4444;
+}
+
+.murph-tour-terminal-bar .dots i:nth-child(2) {
+  background: #F59E0B;
+}
+
+.murph-tour-terminal-bar .dots i:nth-child(3) {
+  background: #10B981;
+}
+
+.murph-tour-terminal-line {
+  padding: 6px 10px 0;
+}
+
+.murph-tour-terminal-line .src {
+  color: #38BDF8;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.murph-tour-terminal-line.you {
+  color: #F8FAFC;
+}
+
+.murph-tour-terminal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px 10px;
+}
+
+.murph-tour-terminal-chips span {
+  padding: 2px 8px;
+  border: 1.5px solid #1E3A5F;
+  border-radius: 3px;
+  background: #0D1526;
+  color: #7DD3FC;
+  font-size: 11px;
+}
+
+/* ---- Welcome card retiring after the tour --------------------------------- */
+.empty-account-state-card.is-dismissing {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  pointer-events: none;
+}
